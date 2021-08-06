@@ -1,4 +1,5 @@
 import 'package:corona_apps/config/color/colorConfig.dart';
+import 'package:expandable/expandable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +10,13 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+
+  var dataSeputarCovid = [
+    {"image": "asset/image/beritaCovid.jpg"},
+    {"image": "asset/image/beritaUpdateCovid.jpg"},
+    {"image": "asset/image/beritaVaksin.jpg"},
+    {"image": "asset/image/beritaWHO.jpg"}
+  ];
 
 
   Widget appBar() {
@@ -151,11 +159,17 @@ class _HomeViewState extends State<HomeView> {
                     ),
                     Expanded(
                         child: Text("")),
-                    IconButton(
-                        iconSize: 26,
-                        color: ColorConfig.colorIconSembuh,
-                        icon: Icon(Icons.remove_red_eye_outlined),
-                        onPressed: () => {print("press")}),
+                    Container(
+                      decoration: BoxDecoration(
+                          color: ColorConfig.colorWhite,
+                          borderRadius: BorderRadius.circular(30)
+                      ),
+                      child: IconButton(
+                          iconSize: 26,
+                          color: ColorConfig.colorIconSembuh,
+                          icon: Icon(Icons.navigate_next),
+                          onPressed: () => {print("press")}),
+                    ),
                   ],
                 ),
               ),),
@@ -340,7 +354,7 @@ class _HomeViewState extends State<HomeView> {
 
   Widget seputarCovid() {
     return Container(
-      height: 300,
+      height: 50,
       margin: EdgeInsets.only(left: 24, right: 24, top: 16),
       child: Column(
         children: [
@@ -388,16 +402,103 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
+  Widget bannerCovid() {
+    return Container(
+        height: 150,
+        margin:  EdgeInsets.only(top: 24, left: 24),
+        child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: dataSeputarCovid.length,
+            itemBuilder: (context, index) {
+              return Container(
+                margin: EdgeInsets.only(right: 8),
+                width: MediaQuery.of(context).size.width - 30,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage(dataSeputarCovid[index]["image"])
+                    )
+                ),
+              );
+            }));
+  }
+
+  Widget question() {
+    return Container(
+      height: 400,
+      margin: EdgeInsets.only(left: 24, right: 24, top: 16),
+      child: Column(
+        children: [
+          Container(
+            child: Row(
+              children: [
+                Container(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        child: Text("Sering Ditanyakan",
+                            style: TextStyle(
+                              color: ColorConfig.colorBlack,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            )),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                    child: Text("")),
+                TextButton(
+                    onPressed: () => {},
+                    child: Text("Lihat Semua",
+                      style: TextStyle(
+                          color: ColorConfig.colorIconSembuh,
+                          fontSize: 12
+                      ),)),
+
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Widget BestQuestion() {
+  //   return Container(
+  //     child: new ExpansionPanelList(
+  //         expansionCallback: (int index, bool isExpanded) {
+  //           setState(() {
+  //             _demoItems[index].isExpanded = !isExpanded;
+  //           });
+  //         },
+  //         children: _demoItems.map((DemoItem<dynamic> item) {
+  //           return new ExpansionPanel(
+  //               isExpanded: item.isExpanded,
+  //               headerBuilder: item.headerBuilder,
+  //               body: item.build()
+  //           );
+  //         }).toList()
+  //     ),
+  //   );
+  // }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.white,
+        color: ColorConfig.colorWhite,
         child: SingleChildScrollView(
           child: Column(
             children: [
               header(),
               seputarCovid(),
+              bannerCovid(),
+              question()
             ],
           ),
         ),

@@ -28,6 +28,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  expandable: ^5.0.1
 
 dev_dependencies:
   flutter_test:
@@ -51,3 +52,7 @@ flutter:
     - asset/image/kematian.png
     - asset/image/sembuh.png
     - asset/image/headerHome.png
+    - asset/image/beritaCovid.jpg
+    - asset/image/beritaUpdateCovid.jpg
+    - asset/image/beritaVaksin.jpg
+    - asset/image/beritaWHO.jpg

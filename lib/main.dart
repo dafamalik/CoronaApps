@@ -1,4 +1,5 @@
 import 'package:corona_apps/feature/home/view/homeView.dart';
+import 'package:corona_apps/feature/mainTabbar/mainTabbar.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
 
           primarySwatch: Colors.blue,
         ),
-        home: HomeView()
+        home: MainTabbar()
     );
   }
 }
