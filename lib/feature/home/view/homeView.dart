@@ -68,7 +68,7 @@ class _HomeViewState extends State<HomeView> {
               fit: BoxFit.cover,
               ),),
           Positioned(
-              top: 40,
+              top: 48,
               left: 24,
               child: appBar()
           ),
@@ -76,23 +76,33 @@ class _HomeViewState extends State<HomeView> {
               top: 148,
               left: 24,
               right: 24,
-              child: Card(
-                elevation: 10,
-                child: Container(
+              child: Container(
                   height: 100,
                   padding: EdgeInsets.all(8),
                   decoration: BoxDecoration(
                     color: ColorConfig.colorWhite,
-                    borderRadius: BorderRadius.circular(300)
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.1),
+                        spreadRadius: 1,
+                        blurRadius: 3,
+                        offset: Offset(0, 2), // changes position of shadow
+                      ),
+                    ],
                   ),
                   child: Row(
                     children: [
-                      Image(image: AssetImage("asset/image/coronaVirusGreen.png"),
-                      width: 60,
-                      fit: BoxFit.cover,
+                      Container(
+                        margin: EdgeInsets.only(left: 8),
+                        child: Image(image: AssetImage("asset/image/coronaVirusGreen.png"),
+                        width: 60,
+                        fit: BoxFit.cover,
+                        ),
                       ),
                       Expanded(
                         child: Container(
+                          margin: EdgeInsets.only(left: 16),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -100,7 +110,7 @@ class _HomeViewState extends State<HomeView> {
                               Text("Pengecekan Covid-19 Mandiri",
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                      fontSize: 15,
+                                      fontSize: 14,
                                       color: ColorConfig.colorBlack,
                                       fontWeight: FontWeight.bold)),
                               Container(
@@ -110,12 +120,11 @@ class _HomeViewState extends State<HomeView> {
                                     maxLines: 2,
                                     textAlign: TextAlign.start,
                                     style: TextStyle(
-                                        fontSize: 14,
+                                        fontSize: 12,
                                         color: ColorConfig.colorGrey)),
                               ),
                             ],
                           ),
-                          margin: EdgeInsets.only(left: 8, right: 8),
                         ),
                       ),
                       IconButton(
@@ -126,7 +135,7 @@ class _HomeViewState extends State<HomeView> {
                     ],
                   ),
                 ),
-          )),
+          ),
           Positioned(
               top: 270,
               left: 24,
@@ -162,7 +171,15 @@ class _HomeViewState extends State<HomeView> {
                     Container(
                       decoration: BoxDecoration(
                           color: ColorConfig.colorWhite,
-                          borderRadius: BorderRadius.circular(30)
+                          borderRadius: BorderRadius.circular(30),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.1),
+                            spreadRadius: 1,
+                            blurRadius: 3,
+                            offset: Offset(0, 2), // changes position of shadow
+                          ),
+                        ],
                       ),
                       child: IconButton(
                           iconSize: 26,
@@ -181,7 +198,15 @@ class _HomeViewState extends State<HomeView> {
                 margin: EdgeInsets.only(top: 8),
                 decoration: BoxDecoration(
                     color: ColorConfig.colorWhite,
-                    borderRadius: BorderRadius.circular(10)
+                    borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.1),
+                      spreadRadius: 1,
+                      blurRadius: 3,
+                      offset: Offset(0, 2), // changes position of shadow
+                    ),
+                  ],
                 ),
                 child: Row(
                   children: [
@@ -218,7 +243,15 @@ class _HomeViewState extends State<HomeView> {
                 padding: EdgeInsets.only(top: 10, left: 10, right: 10),
                 decoration: BoxDecoration(
                     color: ColorConfig.colorWhite,
-                    borderRadius: BorderRadius.circular(10)
+                    borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.1),
+                      spreadRadius: 1,
+                      blurRadius: 3,
+                      offset: Offset(0, 2), // changes position of shadow
+                    ),
+                  ],
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -263,7 +296,15 @@ class _HomeViewState extends State<HomeView> {
                 padding: EdgeInsets.only(top: 10, left: 10, right: 10),
                 decoration: BoxDecoration(
                     color: ColorConfig.colorWhite,
-                    borderRadius: BorderRadius.circular(10)
+                    borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.1),
+                      spreadRadius: 1,
+                      blurRadius: 3,
+                      offset: Offset(0, 2), // changes position of shadow
+                    ),
+                  ],
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -308,7 +349,15 @@ class _HomeViewState extends State<HomeView> {
                 padding: EdgeInsets.only(top: 10, left: 10, right: 10),
                 decoration: BoxDecoration(
                     color: ColorConfig.colorWhite,
-                    borderRadius: BorderRadius.circular(10)
+                    borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.1),
+                      spreadRadius: 1,
+                      blurRadius: 3,
+                      offset: Offset(0, 2), // changes position of shadow
+                    ),
+                  ],
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
