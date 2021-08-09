@@ -1,3 +1,4 @@
+import 'package:corona_apps/config/color/colorConfig.dart';
 import 'package:corona_apps/feature/home/view/homeView.dart';
 import 'package:corona_apps/feature/hotline/view/hotlineView.dart';
 import 'package:corona_apps/feature/kasus/view/kasusView.dart';
@@ -8,6 +9,9 @@ import 'package:flutter/material.dart';
 
 class MainTabbar extends StatefulWidget {
 
+  int selectedIndex;
+
+  MainTabbar({this.selectedIndex});
 
   @override
   _MainTabbarState createState() => _MainTabbarState();
@@ -32,30 +36,50 @@ class _MainTabbarState extends State<MainTabbar> {
   }
 
   @override
+  void initState() {
+
+    if(widget.selectedIndex != null) {
+
+      _onSelectedTab(widget.selectedIndex);
+    }
+
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: screen[crntIndex],
+      body: IndexedStack(
+        index: crntIndex,
+        children: screen,
+      ),
       bottomNavigationBar : BottomNavigationBar(
+        backgroundColor: ColorConfig.colorWhite,
+        elevation: 5,
+        type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Home',
+            label: 'Beranda',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
+            icon: Icon(Icons.coronavirus_outlined),
             label: 'Kasus',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
+            icon: Icon(Icons.call),
             label: 'Hotline',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.supervised_user_circle),
-            label: 'Profile',
+            icon: Icon(Icons.person_rounded),
+            label: 'profile',
           ),
         ],
         currentIndex: crntIndex,
-        selectedItemColor: Colors.green,
+        unselectedItemColor: ColorConfig.colorGrey,
+        selectedItemColor: ColorConfig.colorIconSembuh,
+        showUnselectedLabels: true,
+        showSelectedLabels: true,
         onTap: (e) => {this._onSelectedTab(e)},
       ),
     );

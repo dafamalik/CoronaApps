@@ -10,7 +10,12 @@ class KasusView extends StatefulWidget {
 
 class _KasusViewState extends State<KasusView> {
 
-  var isForecast = true;
+  var dataKasusTerbanyak = [
+    {"image": "asset/image/backgroundKasusTerbanyak.png"},
+    {"image": "asset/image/backgroundKasusTerbanyak.png"},
+    {"image": "asset/image/backgroundKasusTerbanyak.png"},
+    {"image": "asset/image/backgroundKasusTerbanyak.png"}
+  ];
 
   Widget appBar() {
     return Container(
@@ -404,6 +409,84 @@ class _KasusViewState extends State<KasusView> {
     );
   }
 
+  Widget bannerKasusTerbanyak () {
+    return Container(
+        height: 150,
+        margin:  EdgeInsets.only(top: 16, left: 24),
+        child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: dataKasusTerbanyak.length,
+            itemBuilder: (context, index) {
+              return Container(
+                margin: EdgeInsets.only(right: 8),
+                width: MediaQuery.of(context).size.width - 30,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage(dataKasusTerbanyak[index]["image"])
+                    )
+                ),
+              );
+            }));
+  }
+
+  Widget vaksin() {
+    return Container(
+      height: 50,
+      margin: EdgeInsets.only(left: 24, right: 24, top: 32),
+      child: Column(
+        children: [
+          Container(
+            child: Row(
+              children: [
+                Container(
+                  child: Container(
+                    child: Text("Vaksinisasi Indonesia",
+                        style: TextStyle(
+                          color: ColorConfig.colorBlack,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        )),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 8),
+                  child: Image(image: AssetImage("asset/image/indo.png"),
+                    width: 30,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Widget bannervaksin () {
+  //   return Container(
+  //       height: 150,
+  //       margin:  EdgeInsets.only(top: 16, left: 24),
+  //       child: ListView.builder(
+  //           scrollDirection: Axis.horizontal,
+  //           itemCount: dataVaksin.length,
+  //           itemBuilder: (context, index) {
+  //             return Container(
+  //               margin: EdgeInsets.only(right: 8),
+  //               width: MediaQuery.of(context).size.width - 30,
+  //               decoration: BoxDecoration(
+  //                   borderRadius: BorderRadius.circular(8),
+  //                   image: DecorationImage(
+  //                       fit: BoxFit.cover,
+  //                       image: AssetImage(dataVaksin[index]["image"])
+  //                   )
+  //               ),
+  //             );
+  //           }));
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -413,7 +496,9 @@ class _KasusViewState extends State<KasusView> {
           child: Column(
             children: [
               header(),
-              kasusTerbanyak()
+              kasusTerbanyak(),
+              bannerKasusTerbanyak(),
+              vaksin(),
             ],
           ),
         ),
