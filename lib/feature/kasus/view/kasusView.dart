@@ -249,7 +249,7 @@ class _KasusViewState extends State<KasusView> {
                         margin: EdgeInsets.only(top: 10),
                         child: Text("2.73 jt",
                             style: TextStyle(
-                                color: ColorConfig.colorIconSembuh,
+                                color: ColorConfig.colorGreenPrimary,
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold
                             )),
@@ -397,7 +397,7 @@ class _KasusViewState extends State<KasusView> {
                     onPressed: () => {},
                     child: Text("Lihat Semua",
                       style: TextStyle(
-                          color: ColorConfig.colorIconSembuh,
+                          color: ColorConfig.colorGreenPrimary,
                           fontSize: 12
                       ),)),
 

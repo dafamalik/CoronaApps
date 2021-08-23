@@ -77,7 +77,7 @@ class _MainTabbarState extends State<MainTabbar> {
         ],
         currentIndex: crntIndex,
         unselectedItemColor: ColorConfig.colorGrey,
-        selectedItemColor: ColorConfig.colorIconSembuh,
+        selectedItemColor: ColorConfig.colorGreenPrimary,
         showUnselectedLabels: true,
         showSelectedLabels: true,
         onTap: (e) => {this._onSelectedTab(e)},
