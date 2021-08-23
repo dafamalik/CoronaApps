@@ -47,7 +47,7 @@ class _HomeViewState extends State<HomeView> {
                 color: ColorConfig.colorWhite,
                 fontSize: 14,
               ),),
-          )
+          ),
         ],
       ),
     );
