@@ -5,13 +5,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {
-
   @override
   _HomeViewState createState() => _HomeViewState();
 }
 
 class _HomeViewState extends State<HomeView> {
-
   var dataSeputarCovid = [
     {"image": "asset/image/beritaCovid.jpg"},
     {"image": "asset/image/beritaUpdateCovid.jpg"},
@@ -20,9 +18,8 @@ class _HomeViewState extends State<HomeView> {
   ];
 
   void gotoTesCovid() {
-    Navigator.of(context).push(
-      MaterialPageRoute(builder: (context) => TesCovidView())
-    );
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => TesCovidView()));
   }
 
   Widget appBar() {
@@ -31,118 +28,118 @@ class _HomeViewState extends State<HomeView> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Selamat Pagi, Dafa",
+          Text(
+            "Selamat Pagi, Dafa",
             style: TextStyle(
                 color: ColorConfig.colorWhite,
                 fontSize: 18,
-                fontWeight: FontWeight.bold
-            ),),
+                fontWeight: FontWeight.bold),
+          ),
           Container(
             width: 320,
             margin: EdgeInsets.only(top: 8),
-            child: Text("Jangan lupa untuk mematuhi protokol kesehatan dan tetap menjaga 5M yah",
+            child: Text(
+              "Jangan lupa untuk mematuhi protokol kesehatan dan tetap menjaga 5M yah",
               maxLines: 2,
               textAlign: TextAlign.start,
               style: TextStyle(
                 color: ColorConfig.colorWhite,
                 fontSize: 14,
-              ),),
+              ),
+            ),
           ),
         ],
       ),
     );
   }
 
-
   Widget header() {
     return Container(
-      height: 590,
-      decoration: BoxDecoration(
-          color: ColorConfig.colorBackground,
-          borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(20),
-              bottomRight: Radius.circular(20)
-          )
-      ),
-      child: Stack(
-        overflow: Overflow.visible,
-        children: [
-          Positioned(
-          top: 0,
-            child: Image(image: AssetImage("asset/image/headerHome.png"),
-              width: 410,
-              fit: BoxFit.cover,
-              ),),
-          Positioned(
-              top: 48,
-              left: 24,
-              child: appBar()
-          ),
-          Positioned(
+        height: 590,
+        decoration: BoxDecoration(
+            color: ColorConfig.colorBackground,
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(20),
+                bottomRight: Radius.circular(20))),
+        child: Stack(
+          overflow: Overflow.visible,
+          children: [
+            Positioned(
+              top: 0,
+              child: Image(
+                image: AssetImage("asset/image/headerHome.png"),
+                width: 410,
+                fit: BoxFit.cover,
+              ),
+            ),
+            Positioned(top: 48, left: 24, child: appBar()),
+            Positioned(
               top: 148,
               left: 24,
               right: 24,
               child: Container(
-                  height: 100,
-                  padding: EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    color: ColorConfig.colorWhite,
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.1),
-                        spreadRadius: 1,
-                        blurRadius: 3,
-                        offset: Offset(0, 2), // changes position of shadow
-                      ),
-                    ],
-                  ),
-                  child: Row(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(left: 8),
-                        child: Image(image: AssetImage("asset/image/coronaVirusGreen.png"),
+                height: 100,
+                padding: EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: ColorConfig.colorWhite,
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.1),
+                      spreadRadius: 1,
+                      blurRadius: 3,
+                      offset: Offset(0, 2), // changes position of shadow
+                    ),
+                  ],
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(left: 8),
+                      child: Image(
+                        image: AssetImage("asset/image/coronaVirusGreen.png"),
                         width: 55,
                         height: 55,
-                        ),
                       ),
-                      Expanded(
-                        child: Container(
-                          margin: EdgeInsets.only(left: 16),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Pengecekan Covid-19 Mandiri",
+                    ),
+                    Expanded(
+                      child: Container(
+                        margin: EdgeInsets.only(left: 16),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Pengecekan Covid-19 Mandiri",
+                                textAlign: TextAlign.start,
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: ColorConfig.colorBlack,
+                                    fontWeight: FontWeight.bold)),
+                            Container(
+                              width: 200,
+                              margin: EdgeInsets.only(top: 8),
+                              child: Text(
+                                  "Berisi daftar pertanyaan untuk memeriksa kondisi Anda",
+                                  maxLines: 2,
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                      fontSize: 14,
-                                      color: ColorConfig.colorBlack,
-                                      fontWeight: FontWeight.bold)),
-                              Container(
-                                width: 200,
-                                margin: EdgeInsets.only(top: 8),
-                                child: Text("Berisi daftar pertanyaan untuk memeriksa kondisi Anda",
-                                    maxLines: 2,
-                                    textAlign: TextAlign.start,
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        color: ColorConfig.colorGrey)),
-                              ),
-                            ],
-                          ),
+                                      fontSize: 12,
+                                      color: ColorConfig.colorGrey)),
+                            ),
+                          ],
                         ),
                       ),
-                      IconButton(
-                          iconSize: 26,
-                          color: ColorConfig.colorGreenPrimary,
-                          icon: Icon(Icons.navigate_next),
-                          onPressed: () => {this.gotoTesCovid()}),
-                    ],
-                  ),
+                    ),
+                    IconButton(
+                        iconSize: 26,
+                        color: ColorConfig.colorGreenPrimary,
+                        icon: Icon(Icons.navigate_next),
+                        onPressed: () => {this.gotoTesCovid()}),
+                  ],
                 ),
-          ),
-          Positioned(
+              ),
+            ),
+            Positioned(
               top: 270,
               left: 24,
               right: 24,
@@ -163,21 +160,20 @@ class _HomeViewState extends State<HomeView> {
                           ),
                           Container(
                             margin: EdgeInsets.only(top: 8),
-                            child: Text("Update terakhir 31 Juli 2021 - 08:16 WIB",
+                            child: Text(
+                              "Update terakhir 31 Juli 2021 - 08:16 WIB",
                               style: TextStyle(
-                                  color: ColorConfig.colorGrey,
-                                  fontSize: 12
-                              ),),
+                                  color: ColorConfig.colorGrey, fontSize: 12),
+                            ),
                           )
                         ],
                       ),
                     ),
-                    Expanded(
-                        child: Text("")),
+                    Expanded(child: Text("")),
                     Container(
                       decoration: BoxDecoration(
-                          color: ColorConfig.colorWhite,
-                          borderRadius: BorderRadius.circular(30),
+                        color: ColorConfig.colorWhite,
+                        borderRadius: BorderRadius.circular(30),
                         boxShadow: [
                           BoxShadow(
                             color: Colors.grey.withOpacity(0.1),
@@ -195,16 +191,17 @@ class _HomeViewState extends State<HomeView> {
                     ),
                   ],
                 ),
-              ),),
-          Positioned(
+              ),
+            ),
+            Positioned(
               top: 325,
               left: 24,
               right: 24,
               child: Container(
                 margin: EdgeInsets.only(top: 8),
                 decoration: BoxDecoration(
-                    color: ColorConfig.colorWhite,
-                    borderRadius: BorderRadius.circular(10),
+                  color: ColorConfig.colorWhite,
+                  borderRadius: BorderRadius.circular(10),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.withOpacity(0.1),
@@ -218,7 +215,8 @@ class _HomeViewState extends State<HomeView> {
                   children: [
                     Container(
                       margin: EdgeInsets.only(left: 8),
-                      child: Image(image: AssetImage("asset/image/indo.png"),
+                      child: Image(
+                        image: AssetImage("asset/image/indo.png"),
                         width: 19,
                         height: 19,
                       ),
@@ -228,9 +226,7 @@ class _HomeViewState extends State<HomeView> {
                         margin: EdgeInsets.only(left: 16),
                         child: Text("Indonesia",
                             style: TextStyle(
-                                color: ColorConfig.colorBlack,
-                              fontSize: 14
-                            )),
+                                color: ColorConfig.colorBlack, fontSize: 14)),
                       ),
                     ),
                     IconButton(
@@ -240,172 +236,173 @@ class _HomeViewState extends State<HomeView> {
                         onPressed: () => {print("press")}),
                   ],
                 ),
-              ),),
-          Positioned(
-              bottom: 35,
-              left: 24,
+              ),
+            ),
+            Positioned(
+              bottom: 32,
+              left: 16,
+              right: 16,
               child: Container(
-                height: 160,
-                width: 110,
-                padding: EdgeInsets.only(top: 10, left: 10, right: 10),
-                decoration: BoxDecoration(
-                    color: ColorConfig.colorWhite,
-                    borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.1),
-                      spreadRadius: 1,
-                      blurRadius: 3,
-                      offset: Offset(0, 2), // changes position of shadow
-                    ),
-                  ],
-                ),
-                child: Column(
+                child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Image(image: AssetImage("asset/image/coronaVirusYellow.png"),
-                      width: 50,
-                      fit: BoxFit.cover,
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 10),
-                      child: Text("Terinfeksi",
-                          style: TextStyle(
-                              color: ColorConfig.colorBlack,
-                          )),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 10),
-                      child: Text("3.37 jt",
-                          style: TextStyle(
-                              color: ColorConfig.colorIconTerinfeksi,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold
-                          )),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 10),
-                      child: Text("+41.168",
-                          style: TextStyle(
-                            color: ColorConfig.colorGrey,
-                            fontSize: 12,
-                          )),
-                    ),
-                  ],
-                ),
-              )),
-          Positioned(
-              bottom: 35,
-              left: 150,
-              child: Container(
-                height: 160,
-                width: 110,
-                padding: EdgeInsets.only(top: 10, left: 10, right: 10),
-                decoration: BoxDecoration(
-                    color: ColorConfig.colorWhite,
-                    borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.1),
-                      spreadRadius: 1,
-                      blurRadius: 3,
-                      offset: Offset(0, 2), // changes position of shadow
-                    ),
-                  ],
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Image(image: AssetImage("asset/image/sembuh.png"),
-                      width: 50,
-                      fit: BoxFit.cover,
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 10),
-                      child: Text("Sembuh",
-                          style: TextStyle(
-                              color: ColorConfig.colorBlack
-                          )),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 10),
-                      child: Text("2.73 jt",
-                          style: TextStyle(
-                              color: ColorConfig.colorGreenPrimary,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold
-                          )),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 10),
-                      child: Text("+44.550",
-                          style: TextStyle(
-                            color: ColorConfig.colorGrey,
-                            fontSize: 12,
-                          )),
-                    ),
-                  ],
-                ),
-              )),
-          Positioned(
-              bottom: 35,
-              right: 24,
-              child: Container(
-                height: 160,
-                width: 110,
-                padding: EdgeInsets.only(top: 10, left: 10, right: 10),
-                decoration: BoxDecoration(
-                    color: ColorConfig.colorWhite,
-                    borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.1),
-                      spreadRadius: 1,
-                      blurRadius: 3,
-                      offset: Offset(0, 2), // changes position of shadow
-                    ),
-                  ],
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      margin: EdgeInsets.only(top: 10),
-                      child: Image(image: AssetImage("asset/image/kematian.png"),
-                        width: 30,
-                        fit: BoxFit.cover,
+                      height: 128,
+                      width: 93,
+                      padding: EdgeInsets.only(top: 10, left: 10, right: 10),
+                      decoration: BoxDecoration(
+                        color: ColorConfig.colorWhite,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.1),
+                            spreadRadius: 1,
+                            blurRadius: 3,
+                            offset: Offset(0, 2), // changes position of shadow
+                          ),
+                        ],
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Image(
+                              image: AssetImage(
+                                  "asset/image/coronaVirusYellow.png"),
+                              width: 36,
+                              height: 36),
+                          Container(
+                            margin: EdgeInsets.only(top: 10),
+                            child: Text("Terinfeksi",
+                                style: TextStyle(
+                                    color: ColorConfig.colorBlack,
+                                    fontSize: 12)),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(top: 10),
+                            child: Text("3.37 jt",
+                                style: TextStyle(
+                                    color: ColorConfig.colorIconTerinfeksi,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold)),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(top: 10),
+                            child: Text("+41.168",
+                                style: TextStyle(
+                                  color: ColorConfig.colorGrey,
+                                  fontSize: 10,
+                                )),
+                          ),
+                        ],
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(top: 17),
-                      child: Text("Meninggal",
-                          style: TextStyle(
-                              color: ColorConfig.colorBlack
-                          )),
+                      height: 128,
+                      width: 93,
+                      padding: EdgeInsets.only(top: 10, left: 10, right: 10),
+                      margin: EdgeInsets.only(left: 16, right: 16),
+                      decoration: BoxDecoration(
+                        color: ColorConfig.colorWhite,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.1),
+                            spreadRadius: 1,
+                            blurRadius: 3,
+                            offset: Offset(0, 2), // changes position of shadow
+                          ),
+                        ],
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Image(
+                              image: AssetImage("asset/image/sembuh.png"),
+                              width: 36,
+                              height: 36),
+                          Container(
+                            margin: EdgeInsets.only(top: 10),
+                            child: Text("Sembuh",
+                                style: TextStyle(
+                                    color: ColorConfig.colorBlack,
+                                    fontSize: 12)),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(top: 10),
+                            child: Text("2.73 jt",
+                                style: TextStyle(
+                                    color: ColorConfig.colorGreenPrimary,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold)),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(top: 10),
+                            child: Text("+44.550",
+                                style: TextStyle(
+                                  color: ColorConfig.colorGrey,
+                                  fontSize: 10,
+                                )),
+                          ),
+                        ],
+                      ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(top: 10),
-                      child: Text("92.331",
-                          style: TextStyle(
-                              color: ColorConfig.colorIconKematian,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold
-                          )),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 10),
-                      child: Text("+1.759",
-                          style: TextStyle(
-                            color: ColorConfig.colorGrey,
-                            fontSize: 12,
-                          )),
-                    ),
+                      height: 128,
+                      width: 93,
+                      padding: EdgeInsets.only(top: 10, left: 10, right: 10),
+                      decoration: BoxDecoration(
+                        color: ColorConfig.colorWhite,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.1),
+                            spreadRadius: 1,
+                            blurRadius: 3,
+                            offset: Offset(0, 2), // changes position of shadow
+                          ),
+                        ],
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Image(
+                            image: AssetImage("asset/image/kematian.png"),
+                            width: 36,
+                            height: 36,
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(top: 10),
+                            child: Text("Meninggal",
+                                style: TextStyle(
+                                    color: ColorConfig.colorBlack,
+                                    fontSize: 12)),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(top: 10),
+                            child: Text("92.331",
+                                style: TextStyle(
+                                    color: ColorConfig.colorIconKematian,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold)),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(top: 10),
+                            child: Text("+1.759",
+                                style: TextStyle(
+                                  color: ColorConfig.colorGrey,
+                                  fontSize: 10,
+                                )),
+                          ),
+                        ],
+                      ),
+                    )
                   ],
                 ),
-              )),
-        ],
-      )
-    );
+              ),
+            ),
+          ],
+        ));
   }
 
   Widget seputarCovid() {
@@ -431,25 +428,23 @@ class _HomeViewState extends State<HomeView> {
                       ),
                       Container(
                         margin: EdgeInsets.only(top: 8),
-                        child: Text("Menyajikan berita terkini seputar Covid-19",
+                        child: Text(
+                          "Menyajikan berita terkini seputar Covid-19",
                           style: TextStyle(
-                              color: ColorConfig.colorGrey,
-                              fontSize: 12
-                          ),),
+                              color: ColorConfig.colorGrey, fontSize: 12),
+                        ),
                       )
                     ],
                   ),
                 ),
-                Expanded(
-                    child: Text("")),
+                Expanded(child: Text("")),
                 TextButton(
                     onPressed: () => {},
-                    child: Text("Lihat Semua",
+                    child: Text(
+                      "Lihat Semua",
                       style: TextStyle(
-                        color: ColorConfig.colorGreenPrimary,
-                        fontSize: 12
-                      ),)),
-
+                          color: ColorConfig.colorGreenPrimary, fontSize: 12),
+                    )),
               ],
             ),
           ),
@@ -461,7 +456,7 @@ class _HomeViewState extends State<HomeView> {
   Widget bannerCovid() {
     return Container(
         height: 150,
-        margin:  EdgeInsets.only(top: 24, left: 24),
+        margin: EdgeInsets.only(top: 24, left: 24),
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: dataSeputarCovid.length,
@@ -473,9 +468,7 @@ class _HomeViewState extends State<HomeView> {
                     borderRadius: BorderRadius.circular(8),
                     image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: AssetImage(dataSeputarCovid[index]["image"])
-                    )
-                ),
+                        image: AssetImage(dataSeputarCovid[index]["image"]))),
               );
             }));
   }
@@ -505,74 +498,22 @@ class _HomeViewState extends State<HomeView> {
                     ],
                   ),
                 ),
-                Expanded(
-                    child: Text("")),
+                Expanded(child: Text("")),
                 TextButton(
                     onPressed: () => {},
-                    child: Text("Lihat Semua",
+                    child: Text(
+                      "Lihat Semua",
                       style: TextStyle(
-                          color: ColorConfig.colorGreenPrimary,
-                          fontSize: 12
-                      ),)),
-
+                          color: ColorConfig.colorGreenPrimary, fontSize: 12),
+                    )),
               ],
             ),
           ),
           Container(
             height: 77,
             decoration: BoxDecoration(
-              color: ColorConfig.colorBackground,
-              borderRadius: BorderRadius.circular(10)
-            ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-              Container(
-                width: 8,
-                decoration: BoxDecoration(
-                  color: ColorConfig.colorGreenPrimary,
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(10), bottomLeft: Radius.circular(10))
-                ),
-            ),
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(left: 16),
-                      child: Text("Apa itu virus Corona?",
-                        style: TextStyle(
-                            color: ColorConfig.colorBlack,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 14
-                        ),),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(left: 16, top: 8),
-                      child: Text("ini isi",
-                      style: TextStyle(
-                        color: ColorConfig.colorBlack,
-                        fontSize: 14
-                      ),),
-           ),
-                  ],
-                ),
-              ),
-                IconButton(
-                    iconSize: 26,
-                    color: ColorConfig.colorGrey,
-                    icon: Icon(Icons.keyboard_arrow_down_sharp),
-                    onPressed: () => {print("press")}),
-          ],
-      ),
-    ),
-          Container(
-            margin: EdgeInsets.only(top: 8),
-            height: 77,
-            decoration: BoxDecoration(
                 color: ColorConfig.colorBackground,
-                borderRadius: BorderRadius.circular(10)
-            ),
+                borderRadius: BorderRadius.circular(10)),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -580,8 +521,9 @@ class _HomeViewState extends State<HomeView> {
                   width: 8,
                   decoration: BoxDecoration(
                       color: ColorConfig.colorGreenPrimary,
-                      borderRadius: BorderRadius.only(topLeft: Radius.circular(10), bottomLeft: Radius.circular(10))
-                  ),
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          bottomLeft: Radius.circular(10))),
                 ),
                 Expanded(
                   child: Column(
@@ -589,20 +531,21 @@ class _HomeViewState extends State<HomeView> {
                     children: [
                       Container(
                         margin: EdgeInsets.only(left: 16),
-                        child: Text("Apa itu virus Corona?",
+                        child: Text(
+                          "Apa itu virus Corona?",
                           style: TextStyle(
                               color: ColorConfig.colorBlack,
                               fontWeight: FontWeight.bold,
-                              fontSize: 14
-                          ),),
+                              fontSize: 14),
+                        ),
                       ),
                       Container(
                         margin: EdgeInsets.only(left: 16, top: 8),
-                        child: Text("ini isi",
+                        child: Text(
+                          "ini isi",
                           style: TextStyle(
-                              color: ColorConfig.colorBlack,
-                              fontSize: 14
-                          ),),
+                              color: ColorConfig.colorBlack, fontSize: 14),
+                        ),
                       ),
                     ],
                   ),
@@ -620,8 +563,7 @@ class _HomeViewState extends State<HomeView> {
             height: 77,
             decoration: BoxDecoration(
                 color: ColorConfig.colorBackground,
-                borderRadius: BorderRadius.circular(10)
-            ),
+                borderRadius: BorderRadius.circular(10)),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -629,8 +571,59 @@ class _HomeViewState extends State<HomeView> {
                   width: 8,
                   decoration: BoxDecoration(
                       color: ColorConfig.colorGreenPrimary,
-                      borderRadius: BorderRadius.only(topLeft: Radius.circular(10), bottomLeft: Radius.circular(10))
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          bottomLeft: Radius.circular(10))),
+                ),
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(left: 16),
+                        child: Text(
+                          "Apa itu virus Corona?",
+                          style: TextStyle(
+                              color: ColorConfig.colorBlack,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 16, top: 8),
+                        child: Text(
+                          "ini isi",
+                          style: TextStyle(
+                              color: ColorConfig.colorBlack, fontSize: 14),
+                        ),
+                      ),
+                    ],
                   ),
+                ),
+                IconButton(
+                    iconSize: 26,
+                    color: ColorConfig.colorGrey,
+                    icon: Icon(Icons.keyboard_arrow_down_sharp),
+                    onPressed: () => {print("press")}),
+              ],
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 8),
+            height: 77,
+            decoration: BoxDecoration(
+                color: ColorConfig.colorBackground,
+                borderRadius: BorderRadius.circular(10)),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  width: 8,
+                  decoration: BoxDecoration(
+                      color: ColorConfig.colorGreenPrimary,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          bottomLeft: Radius.circular(10))),
                 ),
                 Expanded(
                   child: Column(
@@ -639,20 +632,21 @@ class _HomeViewState extends State<HomeView> {
                     children: [
                       Container(
                         margin: EdgeInsets.only(left: 16),
-                        child: Text("Apa itu virus Corona?",
+                        child: Text(
+                          "Apa itu virus Corona?",
                           style: TextStyle(
                               color: ColorConfig.colorBlack,
                               fontWeight: FontWeight.bold,
-                              fontSize: 14
-                          ),),
+                              fontSize: 14),
+                        ),
                       ),
                       Container(
                         margin: EdgeInsets.only(left: 16, top: 8),
-                        child: Text("ini isi",
+                        child: Text(
+                          "ini isi",
                           style: TextStyle(
-                              color: ColorConfig.colorBlack,
-                              fontSize: 14
-                          ),),
+                              color: ColorConfig.colorBlack, fontSize: 14),
+                        ),
                       ),
                     ],
                   ),
@@ -670,211 +664,244 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  Widget edukasiWidget () {
+  Widget edukasiWidget() {
     return Container(
-      height: 610,
-      margin: EdgeInsets.only(left: 24, right: 24),
-      child: ListView(
-        physics: NeverScrollableScrollPhysics(),
-        children: [
-          Container(
-            margin: EdgeInsets.only(top: 24),
-            child: Text("Edukasi Covid-19",
-              style: TextStyle(
-                  color: ColorConfig.colorBlack,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold
-              ),),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 16),
-            child: Row(
-              children: [
-                Image(image: AssetImage("asset/image/edukasi1.png"),
-                height: 86,
-                width: 86,),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      width: 250,
-                      margin: EdgeInsets.only(left: 8, right: 8),
-                      child: Text("Pengantar Adaptasi Kebiasaan Baru",
-                        maxLines: 3,
-                      style: TextStyle(
-                        color: ColorConfig.colorBlack,
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold
-                      ),),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 8, left: 8, right: 8),
-                      child: Row(
-                        children: [
-                          Icon(Icons.access_time, size: 14,),
-                          Container(
-                            margin: EdgeInsets.only(left: 8),
-                              child: Text("5 jam yang lalu")),
-                        ],
-                      ),
-                    )
-                  ],
-                )
-              ],
+        height: 610,
+        margin: EdgeInsets.only(left: 24, right: 24),
+        child: ListView(
+          physics: NeverScrollableScrollPhysics(),
+          children: [
+            Container(
+              margin: EdgeInsets.only(top: 24),
+              child: Text(
+                "Edukasi Covid-19",
+                style: TextStyle(
+                    color: ColorConfig.colorBlack,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold),
+              ),
             ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 16),
-            child: Row(
-              children: [
-                Image(image: AssetImage("asset/image/edukasi2.png"),
-                  height: 86,
-                  width: 86,),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(left: 16, right: 16),
-                        child: Text("Panduan Kesehatan Jiwa Di Masa Pandemi - Satgas Penanganan Covid-19",
-                          maxLines: 3,
-                          style: TextStyle(
-                              color: ColorConfig.colorBlack,
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold
-                          ),),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(top: 8, left: 8, right: 8),
-                        child: Row(
-                          children: [
-                            Icon(Icons.access_time, size: 14,),
-                            Container(
-                                margin: EdgeInsets.only(left: 8),
-                                child: Text("5 jam yang lalu")),
-                          ],
+            Container(
+              margin: EdgeInsets.only(top: 16),
+              child: Row(
+                children: [
+                  Image(
+                      image: AssetImage("asset/image/edukasi1.png"),
+                      height: 86,
+                      width: 86),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(left: 8, right: 8),
+                          child: Text(
+                            "Pengantar Adaptasi Kebiasaan Baru",
+                            maxLines: 3,
+                            style: TextStyle(
+                                color: ColorConfig.colorBlack,
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold),
+                          ),
                         ),
-                      )
-                    ],
+                        Container(
+                          margin: EdgeInsets.only(top: 8, left: 8, right: 8),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.access_time,
+                                size: 14,
+                              ),
+                              Container(
+                                  margin: EdgeInsets.only(left: 8),
+                                  child: Text("5 jam yang lalu")),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 16),
+              child: Row(
+                children: [
+                  Image(
+                    image: AssetImage("asset/image/edukasi2.png"),
+                    height: 86,
+                    width: 86,
                   ),
-                )
-              ],
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 16),
-            child: Row(
-              children: [
-                Image(image: AssetImage("asset/image/edukasi3.png"),
-                  height: 86,
-                  width: 86,),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      width: 250,
-                      margin: EdgeInsets.only(left: 8, right: 8),
-                      child: Text("Menghidupkan Percakapan Positif yang Memberdayakan di Ruang Keluarga",
-                        maxLines: 3,
-                        style: TextStyle(
-                            color: ColorConfig.colorBlack,
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold
-                        ),),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(left: 8, right: 8),
+                          child: Text(
+                            "Panduan Kesehatan Jiwa Di Masa Pandemi - Satgas Penanganan Covid-19",
+                            maxLines: 3,
+                            style: TextStyle(
+                                color: ColorConfig.colorBlack,
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(top: 8, left: 8, right: 8),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.access_time,
+                                size: 14,
+                              ),
+                              Container(
+                                  margin: EdgeInsets.only(left: 8),
+                                  child: Text("5 jam yang lalu")),
+                            ],
+                          ),
+                        )
+                      ],
                     ),
-                    Container(
-                      margin: EdgeInsets.only(top: 8, left: 8, right: 8),
-                      child: Row(
-                        children: [
-                          Icon(Icons.access_time, size: 14,),
-                          Container(
-                              margin: EdgeInsets.only(left: 8),
-                              child: Text("5 jam yang lalu")),
-                        ],
-                      ),
-                    )
-                  ],
-                )
-              ],
+                  )
+                ],
+              ),
             ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 16),
-            child: Row(
-              children: [
-                Image(image: AssetImage("asset/image/edukasi4.png"),
-                  height: 86,
-                  width: 86,),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      width: 250,
-                      margin: EdgeInsets.only(left: 8, right: 8),
-                      child: Text("Pemimpin Empati di Masa Pandemic COVID-19",
-                        maxLines: 3,
-                        style: TextStyle(
-                            color: ColorConfig.colorBlack,
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold
-                        ),),
+            Container(
+              margin: EdgeInsets.only(top: 16),
+              child: Row(
+                children: [
+                  Image(
+                    image: AssetImage("asset/image/edukasi3.png"),
+                    height: 86,
+                    width: 86,
+                  ),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(left: 8, right: 8),
+                          child: Text(
+                            "Menghidupkan Percakapan Positif yang Memberdayakan di Ruang Keluarga",
+                            maxLines: 3,
+                            style: TextStyle(
+                                color: ColorConfig.colorBlack,
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(top: 8, left: 8, right: 8),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.access_time,
+                                size: 14,
+                              ),
+                              Container(
+                                  margin: EdgeInsets.only(left: 8),
+                                  child: Text("5 jam yang lalu")),
+                            ],
+                          ),
+                        )
+                      ],
                     ),
-                    Container(
-                      margin: EdgeInsets.only(top: 8, left: 8, right: 8),
-                      child: Row(
-                        children: [
-                          Icon(Icons.access_time, size: 14,),
-                          Container(
-                              margin: EdgeInsets.only(left: 8),
-                              child: Text("5 jam yang lalu")),
-                        ],
-                      ),
-                    )
-                  ],
-                )
-              ],
+                  )
+                ],
+              ),
             ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 16),
-            child: Row(
-              children: [
-                Image(image: AssetImage("asset/image/edukasi5.png"),
-                  height: 86,
-                  width: 86,),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      width: 250,
-                      margin: EdgeInsets.only(left: 8, right: 8),
-                      child: Text("Memaafkan Membuat Sehat Jiwa dan Raga",
-                        maxLines: 3,
-                        style: TextStyle(
-                            color: ColorConfig.colorBlack,
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold
-                        ),),
+            Container(
+              margin: EdgeInsets.only(top: 16),
+              child: Row(
+                children: [
+                  Image(
+                    image: AssetImage("asset/image/edukasi4.png"),
+                    height: 86,
+                    width: 86,
+                  ),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(left: 8, right: 8),
+                          child: Text(
+                            "Pemimpin Empati di Masa Pandemic COVID-19",
+                            maxLines: 3,
+                            style: TextStyle(
+                                color: ColorConfig.colorBlack,
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(top: 8, left: 8, right: 8),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.access_time,
+                                size: 14,
+                              ),
+                              Container(
+                                  margin: EdgeInsets.only(left: 8),
+                                  child: Text("5 jam yang lalu")),
+                            ],
+                          ),
+                        )
+                      ],
                     ),
-                    Container(
-                      margin: EdgeInsets.only(top: 8, left: 8, right: 8),
-                      child: Row(
-                        children: [
-                          Icon(Icons.access_time, size: 14,),
-                          Container(
-                              margin: EdgeInsets.only(left: 8),
-                              child: Text("5 jam yang lalu")),
-                        ],
-                      ),
-                    )
-                  ],
-                )
-              ],
+                  )
+                ],
+              ),
             ),
-          ),
-        ],
-      )
-    );
+            Container(
+              margin: EdgeInsets.only(top: 16),
+              child: Row(
+                children: [
+                  Image(
+                    image: AssetImage("asset/image/edukasi5.png"),
+                    height: 86,
+                    width: 86,
+                  ),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(left: 8, right: 8),
+                          child: Text(
+                            "Memaafkan Membuat Sehat Jiwa dan Raga",
+                            maxLines: 3,
+                            style: TextStyle(
+                                color: ColorConfig.colorBlack,
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(top: 8, left: 8, right: 8),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.access_time,
+                                size: 14,
+                              ),
+                              Container(
+                                  margin: EdgeInsets.only(left: 8),
+                                  child: Text("5 jam yang lalu")),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ],
+        ));
   }
 
   Widget motivasiWidget() {
@@ -885,11 +912,10 @@ class _HomeViewState extends State<HomeView> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text("Motivasi Dari Penyintas Covid-19",
-          style: TextStyle(
-            color: ColorConfig.colorBlack,
-            fontSize: 16,
-            fontWeight: FontWeight.bold
-          )),
+              style: TextStyle(
+                  color: ColorConfig.colorBlack,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold)),
           Expanded(
             child: Container(
               child: ListView(
@@ -904,52 +930,57 @@ class _HomeViewState extends State<HomeView> {
                         Container(
                           height: 146,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            image: DecorationImage(
-                              image: AssetImage("asset/image/motivasi1.png"), fit: BoxFit.contain
-                            )
-                          ),
+                              borderRadius: BorderRadius.circular(10),
+                              image: DecorationImage(
+                                  image:
+                                      AssetImage("asset/image/motivasi1.png"),
+                                  fit: BoxFit.contain)),
                           child: Center(
                             child: Container(
                               height: 40,
                               width: 40,
                               decoration: BoxDecoration(
-                                color: ColorConfig.colorButtonPlay,
-                                borderRadius: BorderRadius.circular(20)
+                                  color: ColorConfig.colorButtonPlay,
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: Icon(
+                                Icons.play_arrow,
+                                color: ColorConfig.colorWhite,
                               ),
-                              child: Icon(Icons.play_arrow, color: ColorConfig.colorWhite,),
                             ),
                           ),
                         ),
                         Container(
                           margin: EdgeInsets.only(top: 16),
-                          child: Text("Ibu Rahmi Berhasil Sembuh Dari Covid-19 Dengan Tekad Kuat Dala...",
+                          child: Text(
+                            "Ibu Rahmi Berhasil Sembuh Dari Covid-19 Dengan Tekad Kuat Dala...",
                             maxLines: 2,
-                          style: TextStyle(
-                            color: ColorConfig.colorBlack,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 14
-                          ),),
+                            style: TextStyle(
+                                color: ColorConfig.colorBlack,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14),
+                          ),
                         ),
                         Container(
                           child: Row(
                             children: [
                               Container(
-                                width: 56,
-                                height: 23,
-                                margin: EdgeInsets.only(top: 8),
-                                decoration: BoxDecoration(
-                                  border: Border.all(color: ColorConfig.colorGreenPrimary),
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: ColorConfig.colorBackground,
-                                ),
-                                child: Center(
-                                  child: Text("Video",
-                                    style: TextStyle(
-                                      color: ColorConfig.colorGreenPrimary,
-                                    ),),
-                                )
-                              )
+                                  width: 56,
+                                  height: 23,
+                                  margin: EdgeInsets.only(top: 8),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: ColorConfig.colorGreenPrimary),
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: ColorConfig.colorBackground,
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      "Video",
+                                      style: TextStyle(
+                                        color: ColorConfig.colorGreenPrimary,
+                                      ),
+                                    ),
+                                  ))
                             ],
                           ),
                         )
@@ -967,30 +998,33 @@ class _HomeViewState extends State<HomeView> {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               image: DecorationImage(
-                                  image: AssetImage("asset/image/motivasi1.png"), fit: BoxFit.contain
-                              )
-                          ),
+                                  image:
+                                      AssetImage("asset/image/motivasi1.png"),
+                                  fit: BoxFit.contain)),
                           child: Center(
                             child: Container(
                               height: 40,
                               width: 40,
                               decoration: BoxDecoration(
                                   color: ColorConfig.colorButtonPlay,
-                                  borderRadius: BorderRadius.circular(20)
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: Icon(
+                                Icons.play_arrow,
+                                color: ColorConfig.colorWhite,
                               ),
-                              child: Icon(Icons.play_arrow, color: ColorConfig.colorWhite,),
                             ),
                           ),
                         ),
                         Container(
                           margin: EdgeInsets.only(top: 16),
-                          child: Text("Ibu Rahmi Berhasil Sembuh Dari Covid-19 Dengan Tekad Kuat Dala...",
+                          child: Text(
+                            "Ibu Rahmi Berhasil Sembuh Dari Covid-19 Dengan Tekad Kuat Dala...",
                             maxLines: 2,
                             style: TextStyle(
                                 color: ColorConfig.colorBlack,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 14
-                            ),),
+                                fontSize: 14),
+                          ),
                         ),
                         Container(
                           child: Row(
@@ -1000,17 +1034,19 @@ class _HomeViewState extends State<HomeView> {
                                   height: 23,
                                   margin: EdgeInsets.only(top: 8),
                                   decoration: BoxDecoration(
-                                    border: Border.all(color: ColorConfig.colorGreenPrimary),
+                                    border: Border.all(
+                                        color: ColorConfig.colorGreenPrimary),
                                     borderRadius: BorderRadius.circular(10),
                                     color: ColorConfig.colorBackground,
                                   ),
                                   child: Center(
-                                    child: Text("Video",
+                                    child: Text(
+                                      "Video",
                                       style: TextStyle(
                                         color: ColorConfig.colorGreenPrimary,
-                                      ),),
-                                  )
-                              )
+                                      ),
+                                    ),
+                                  ))
                             ],
                           ),
                         )
@@ -1028,30 +1064,33 @@ class _HomeViewState extends State<HomeView> {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               image: DecorationImage(
-                                  image: AssetImage("asset/image/motivasi1.png"), fit: BoxFit.contain
-                              )
-                          ),
+                                  image:
+                                      AssetImage("asset/image/motivasi1.png"),
+                                  fit: BoxFit.contain)),
                           child: Center(
                             child: Container(
                               height: 40,
                               width: 40,
                               decoration: BoxDecoration(
                                   color: ColorConfig.colorButtonPlay,
-                                  borderRadius: BorderRadius.circular(20)
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: Icon(
+                                Icons.play_arrow,
+                                color: ColorConfig.colorWhite,
                               ),
-                              child: Icon(Icons.play_arrow, color: ColorConfig.colorWhite,),
                             ),
                           ),
                         ),
                         Container(
                           margin: EdgeInsets.only(top: 16),
-                          child: Text("Ibu Rahmi Berhasil Sembuh Dari Covid-19 Dengan Tekad Kuat Dala...",
+                          child: Text(
+                            "Ibu Rahmi Berhasil Sembuh Dari Covid-19 Dengan Tekad Kuat Dala...",
                             maxLines: 2,
                             style: TextStyle(
                                 color: ColorConfig.colorBlack,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 14
-                            ),),
+                                fontSize: 14),
+                          ),
                         ),
                         Container(
                           child: Row(
@@ -1061,17 +1100,19 @@ class _HomeViewState extends State<HomeView> {
                                   height: 23,
                                   margin: EdgeInsets.only(top: 8),
                                   decoration: BoxDecoration(
-                                    border: Border.all(color: ColorConfig.colorGreenPrimary),
+                                    border: Border.all(
+                                        color: ColorConfig.colorGreenPrimary),
                                     borderRadius: BorderRadius.circular(10),
                                     color: ColorConfig.colorBackground,
                                   ),
                                   child: Center(
-                                    child: Text("Video",
+                                    child: Text(
+                                      "Video",
                                       style: TextStyle(
                                         color: ColorConfig.colorGreenPrimary,
-                                      ),),
-                                  )
-                              )
+                                      ),
+                                    ),
+                                  ))
                             ],
                           ),
                         )
@@ -1086,7 +1127,6 @@ class _HomeViewState extends State<HomeView> {
       ),
     );
   }
-
 
   @override
   Widget build(BuildContext context) {
