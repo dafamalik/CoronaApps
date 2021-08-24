@@ -1,4 +1,5 @@
 import 'package:corona_apps/config/color/colorConfig.dart';
+import 'package:corona_apps/feature/home/view/hasilTesview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +13,11 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
 
   void gotoTesCovid() {
     Navigator.of(context).pop();
+  }
+
+  void gotoHasilTes() {
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => HasilTesView())
+    );
   }
 
   Widget appBar() {
@@ -1059,7 +1065,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
               borderRadius: BorderRadius.circular(8),
             ),
             child: FlatButton(
-                onPressed: () => {print("Tidak")},
+                onPressed: () => {this.gotoHasilTes()},
                 child: Text("Lihat Hasil Pengecekan",
                   style: TextStyle(
                     color: ColorConfig.colorWhite,
