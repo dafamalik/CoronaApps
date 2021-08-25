@@ -33,7 +33,8 @@ class _HomeViewState extends State<HomeView> {
             style: TextStyle(
                 color: ColorConfig.colorWhite,
                 fontSize: 18,
-                fontWeight: FontWeight.bold),
+              fontFamily: 'NunitoBold',
+            ),
           ),
           Container(
             width: 308,
@@ -45,6 +46,7 @@ class _HomeViewState extends State<HomeView> {
               style: TextStyle(
                 color: ColorConfig.colorWhite,
                 fontSize: 14,
+                fontFamily: 'NunitoRegular'
               ),
             ),
           ),
@@ -124,7 +126,7 @@ class _HomeViewState extends State<HomeView> {
                                 style: TextStyle(
                                     fontSize: 14,
                                     color: ColorConfig.colorBlack,
-                                    fontWeight: FontWeight.bold)),
+                                    fontFamily: 'NunitoBold')),
                             Container(
                               width: 200,
                               margin: EdgeInsets.only(top: 8),
@@ -134,7 +136,9 @@ class _HomeViewState extends State<HomeView> {
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
                                       fontSize: 12,
-                                      color: ColorConfig.colorGrey)),
+                                      color: ColorConfig.colorGrey,
+                                    fontFamily: 'NunitoRegular'
+                                  )),
                             ),
                           ],
                         ),
@@ -164,7 +168,7 @@ class _HomeViewState extends State<HomeView> {
                             child: Text("Update Terbaru Covid-19",
                                 style: TextStyle(
                                   color: ColorConfig.colorBlack,
-                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'NunitoBold',
                                   fontSize: 16,
                                 )),
                           ),
@@ -174,6 +178,7 @@ class _HomeViewState extends State<HomeView> {
                               "Update terakhir 31 Juli 2021 - 08:16 WIB",
                               style: TextStyle(
                                   color: ColorConfig.colorGrey,
+                                  fontFamily: 'NunitoRegular',
                                   fontSize: 12),
                             ),
                           )
@@ -240,6 +245,7 @@ class _HomeViewState extends State<HomeView> {
                         child: Text("Indonesia",
                             style: TextStyle(
                                 color: ColorConfig.colorBlack,
+                                fontFamily: 'NunitoRegular',
                                 fontSize: 14)),
                       ),
                     ),
@@ -290,6 +296,7 @@ class _HomeViewState extends State<HomeView> {
                             child: Text("Terinfeksi",
                                 style: TextStyle(
                                     color: ColorConfig.colorBlack,
+                                    fontFamily: 'NunitoRegular',
                                     fontSize: 12)),
                           ),
                           Container(
@@ -298,7 +305,7 @@ class _HomeViewState extends State<HomeView> {
                                 style: TextStyle(
                                     color: ColorConfig.colorIconTerinfeksi,
                                     fontSize: 14,
-                                    fontWeight: FontWeight.bold)),
+                                    fontFamily: 'NunitoBold')),
                           ),
                           Container(
                             margin: EdgeInsets.only(top: 10),
@@ -306,6 +313,7 @@ class _HomeViewState extends State<HomeView> {
                                 style: TextStyle(
                                   color: ColorConfig.colorGrey,
                                   fontSize: 10,
+                                  fontFamily: 'NunitoRegular'
                                 )),
                           ),
                         ],
@@ -340,6 +348,7 @@ class _HomeViewState extends State<HomeView> {
                             child: Text("Sembuh",
                                 style: TextStyle(
                                     color: ColorConfig.colorBlack,
+                                    fontFamily: 'NunitoRegular',
                                     fontSize: 12)),
                           ),
                           Container(
@@ -348,7 +357,7 @@ class _HomeViewState extends State<HomeView> {
                                 style: TextStyle(
                                     color: ColorConfig.colorGreenPrimary,
                                     fontSize: 14,
-                                    fontWeight: FontWeight.bold)),
+                                    fontFamily: 'NunitoBold')),
                           ),
                           Container(
                             margin: EdgeInsets.only(top: 10),
@@ -356,6 +365,7 @@ class _HomeViewState extends State<HomeView> {
                                 style: TextStyle(
                                   color: ColorConfig.colorGrey,
                                   fontSize: 10,
+                                  fontFamily: 'NunitoRegular'
                                 )),
                           ),
                         ],
@@ -390,6 +400,7 @@ class _HomeViewState extends State<HomeView> {
                             child: Text("Meninggal",
                                 style: TextStyle(
                                     color: ColorConfig.colorBlack,
+                                    fontFamily: 'NunitoRegular',
                                     fontSize: 12)),
                           ),
                           Container(
@@ -398,7 +409,7 @@ class _HomeViewState extends State<HomeView> {
                                 style: TextStyle(
                                     color: ColorConfig.colorIconKematian,
                                     fontSize: 14,
-                                    fontWeight: FontWeight.bold)),
+                                    fontFamily: 'NunitoBold')),
                           ),
                           Container(
                             margin: EdgeInsets.only(top: 10),
@@ -406,6 +417,7 @@ class _HomeViewState extends State<HomeView> {
                                 style: TextStyle(
                                   color: ColorConfig.colorGrey,
                                   fontSize: 10,
+                                  fontFamily: 'NunitoRegular'
                                 )),
                           ),
                         ],
@@ -436,7 +448,7 @@ class _HomeViewState extends State<HomeView> {
                         child: Text("Seputar Covid-19",
                             style: TextStyle(
                               color: ColorConfig.colorBlack,
-                              fontWeight: FontWeight.bold,
+                              fontFamily: 'NunitoBold',
                               fontSize: 16,
                             )),
                       ),
@@ -446,6 +458,7 @@ class _HomeViewState extends State<HomeView> {
                           "Menyajikan berita terkini seputar Covid-19",
                           style: TextStyle(
                               color: ColorConfig.colorGrey,
+                              fontFamily: 'NunitoRegular',
                               fontSize: 12),
                         ),
                       )
@@ -459,11 +472,13 @@ class _HomeViewState extends State<HomeView> {
                       "Lihat Semua",
                       style: TextStyle(
                           color: ColorConfig.colorGreenPrimary,
+                          fontFamily: 'NunitoRegular',
                           fontSize: 12),
                     )),
               ],
             ),
           ),
+
         ],
       ),
     );
@@ -480,7 +495,6 @@ class _HomeViewState extends State<HomeView> {
               return Container(
                 margin: EdgeInsets.only(right: 8),
                 width: 298,
-                height: 158,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
                     image: DecorationImage(
@@ -508,7 +522,7 @@ class _HomeViewState extends State<HomeView> {
                         child: Text("Sering Ditanyakan",
                             style: TextStyle(
                               color: ColorConfig.colorBlack,
-                              fontWeight: FontWeight.bold,
+                              fontFamily: 'NunitoBold',
                               fontSize: 16,
                             )),
                       ),
@@ -522,6 +536,7 @@ class _HomeViewState extends State<HomeView> {
                       "Lihat Semua",
                       style: TextStyle(
                           color: ColorConfig.colorGreenPrimary,
+                          fontFamily: 'NunitoRegular',
                           fontSize: 12),
                     )),
               ],
@@ -553,7 +568,7 @@ class _HomeViewState extends State<HomeView> {
                           "Apa itu virus Corona?",
                           style: TextStyle(
                               color: ColorConfig.colorBlack,
-                              fontWeight: FontWeight.bold,
+                              fontFamily: 'NunitoBold',
                               fontSize: 14),
                         ),
                       ),
@@ -562,7 +577,9 @@ class _HomeViewState extends State<HomeView> {
                         child: Text(
                           "ini isi",
                           style: TextStyle(
-                              color: ColorConfig.colorBlack, fontSize: 14),
+                              color: ColorConfig.colorBlack,
+                              fontFamily: 'NunitoRegular',
+                              fontSize: 14),
                         ),
                       ),
                     ],
@@ -603,7 +620,7 @@ class _HomeViewState extends State<HomeView> {
                           "Apa itu virus Corona?",
                           style: TextStyle(
                               color: ColorConfig.colorBlack,
-                              fontWeight: FontWeight.bold,
+                              fontFamily: 'NunitoBold',
                               fontSize: 14),
                         ),
                       ),
@@ -612,7 +629,9 @@ class _HomeViewState extends State<HomeView> {
                         child: Text(
                           "ini isi",
                           style: TextStyle(
-                              color: ColorConfig.colorBlack, fontSize: 14),
+                              color: ColorConfig.colorBlack,
+                              fontFamily: 'NunitoRegular',
+                              fontSize: 14),
                         ),
                       ),
                     ],
@@ -654,7 +673,7 @@ class _HomeViewState extends State<HomeView> {
                           "Apa itu virus Corona?",
                           style: TextStyle(
                               color: ColorConfig.colorBlack,
-                              fontWeight: FontWeight.bold,
+                              fontFamily: 'NunitoBold',
                               fontSize: 14),
                         ),
                       ),
@@ -663,7 +682,9 @@ class _HomeViewState extends State<HomeView> {
                         child: Text(
                           "ini isi",
                           style: TextStyle(
-                              color: ColorConfig.colorBlack, fontSize: 14),
+                              color: ColorConfig.colorBlack,
+                              fontFamily: 'NunitoRegular',
+                              fontSize: 14),
                         ),
                       ),
                     ],
@@ -696,7 +717,7 @@ class _HomeViewState extends State<HomeView> {
                 style: TextStyle(
                     color: ColorConfig.colorBlack,
                     fontSize: 16,
-                    fontWeight: FontWeight.bold),
+                    fontFamily: 'NunitoBold'),
               ),
             ),
             Container(
@@ -719,7 +740,7 @@ class _HomeViewState extends State<HomeView> {
                             style: TextStyle(
                                 color: ColorConfig.colorBlack,
                                 fontSize: 14,
-                                fontWeight: FontWeight.bold),
+                                fontFamily: 'NunitoBold'),
                           ),
                         ),
                         Container(
@@ -732,7 +753,12 @@ class _HomeViewState extends State<HomeView> {
                               ),
                               Container(
                                   margin: EdgeInsets.only(left: 8),
-                                  child: Text("5 jam yang lalu")),
+                                  child: Text("5 jam yang lalu",
+                                    style: TextStyle(
+                                      color: ColorConfig.colorGrey,
+                                      fontSize: 12,
+                                      fontFamily: 'NunitoRegular'
+                                  ),)),
                             ],
                           ),
                         )
@@ -763,7 +789,7 @@ class _HomeViewState extends State<HomeView> {
                             style: TextStyle(
                                 color: ColorConfig.colorBlack,
                                 fontSize: 14,
-                                fontWeight: FontWeight.bold),
+                                fontFamily: 'NunitoBold'),
                           ),
                         ),
                         Container(
@@ -776,7 +802,13 @@ class _HomeViewState extends State<HomeView> {
                               ),
                               Container(
                                   margin: EdgeInsets.only(left: 8),
-                                  child: Text("5 jam yang lalu")),
+                                  child: Text("5 jam yang lalu",
+                                    style: TextStyle(
+                                        color: ColorConfig.colorGrey,
+                                        fontSize: 12,
+                                        fontFamily: 'NunitoRegular'
+                                    ),
+                                  )),
                             ],
                           ),
                         )
@@ -807,7 +839,7 @@ class _HomeViewState extends State<HomeView> {
                             style: TextStyle(
                                 color: ColorConfig.colorBlack,
                                 fontSize: 14,
-                                fontWeight: FontWeight.bold),
+                                fontFamily: 'NunitoBold'),
                           ),
                         ),
                         Container(
@@ -820,7 +852,13 @@ class _HomeViewState extends State<HomeView> {
                               ),
                               Container(
                                   margin: EdgeInsets.only(left: 8),
-                                  child: Text("5 jam yang lalu")),
+                                  child: Text("5 jam yang lalu",
+                                    style: TextStyle(
+                                        color: ColorConfig.colorGrey,
+                                        fontSize: 12,
+                                        fontFamily: 'NunitoRegular'
+                                    ),
+                                  )),
                             ],
                           ),
                         )
@@ -851,7 +889,7 @@ class _HomeViewState extends State<HomeView> {
                             style: TextStyle(
                                 color: ColorConfig.colorBlack,
                                 fontSize: 14,
-                                fontWeight: FontWeight.bold),
+                                fontFamily: 'NunitoBold'),
                           ),
                         ),
                         Container(
@@ -864,7 +902,12 @@ class _HomeViewState extends State<HomeView> {
                               ),
                               Container(
                                   margin: EdgeInsets.only(left: 8),
-                                  child: Text("5 jam yang lalu")),
+                                  child: Text("5 jam yang lalu",
+                                    style: TextStyle(
+                                        color: ColorConfig.colorGrey,
+                                        fontSize: 12,
+                                        fontFamily: 'NunitoRegular'
+                                    ),)),
                             ],
                           ),
                         )
@@ -895,7 +938,7 @@ class _HomeViewState extends State<HomeView> {
                             style: TextStyle(
                                 color: ColorConfig.colorBlack,
                                 fontSize: 14,
-                                fontWeight: FontWeight.bold),
+                                fontFamily: 'NunitoBold'),
                           ),
                         ),
                         Container(
@@ -908,7 +951,12 @@ class _HomeViewState extends State<HomeView> {
                               ),
                               Container(
                                   margin: EdgeInsets.only(left: 8),
-                                  child: Text("5 jam yang lalu")),
+                                  child: Text("5 jam yang lalu",
+                                    style: TextStyle(
+                                        color: ColorConfig.colorGrey,
+                                        fontSize: 12,
+                                        fontFamily: 'NunitoRegular'
+                                    ),)),
                             ],
                           ),
                         )
@@ -933,7 +981,7 @@ class _HomeViewState extends State<HomeView> {
               style: TextStyle(
                   color: ColorConfig.colorBlack,
                   fontSize: 16,
-                  fontWeight: FontWeight.bold)),
+                  fontFamily: 'NunitoBold')),
           Expanded(
             child: Container(
               child: ListView(
@@ -974,7 +1022,7 @@ class _HomeViewState extends State<HomeView> {
                             maxLines: 2,
                             style: TextStyle(
                                 color: ColorConfig.colorBlack,
-                                fontWeight: FontWeight.bold,
+                                fontFamily: 'NunitoBold',
                                 fontSize: 14),
                           ),
                         ),
@@ -996,6 +1044,8 @@ class _HomeViewState extends State<HomeView> {
                                       "Video",
                                       style: TextStyle(
                                         color: ColorConfig.colorGreenPrimary,
+                                        fontSize: 12,
+                                        fontFamily: 'NunitoSemiBold'
                                       ),
                                     ),
                                   ))
@@ -1040,7 +1090,7 @@ class _HomeViewState extends State<HomeView> {
                             maxLines: 2,
                             style: TextStyle(
                                 color: ColorConfig.colorBlack,
-                                fontWeight: FontWeight.bold,
+                                fontFamily: 'NunitoBold',
                                 fontSize: 14),
                           ),
                         ),
@@ -1062,6 +1112,8 @@ class _HomeViewState extends State<HomeView> {
                                       "Video",
                                       style: TextStyle(
                                         color: ColorConfig.colorGreenPrimary,
+                                        fontSize: 12,
+                                        fontFamily: 'NunitoSemiBold'
                                       ),
                                     ),
                                   ))
@@ -1106,7 +1158,7 @@ class _HomeViewState extends State<HomeView> {
                             maxLines: 2,
                             style: TextStyle(
                                 color: ColorConfig.colorBlack,
-                                fontWeight: FontWeight.bold,
+                                fontFamily: 'NunitoBold',
                                 fontSize: 14),
                           ),
                         ),
@@ -1128,6 +1180,8 @@ class _HomeViewState extends State<HomeView> {
                                       "Video",
                                       style: TextStyle(
                                         color: ColorConfig.colorGreenPrimary,
+                                        fontSize: 12,
+                                        fontFamily: 'NunitoSemiBold'
                                       ),
                                     ),
                                   ))

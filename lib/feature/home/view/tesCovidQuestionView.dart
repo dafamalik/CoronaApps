@@ -49,7 +49,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                       style: TextStyle(
                         color: ColorConfig.colorWhite,
                         fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                        fontFamily: 'NunitoBold'
                       ),
                       ),
                       Container(
@@ -58,6 +58,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                           maxLines: 2,
                           style: TextStyle(
                             color: ColorConfig.colorWhite,
+                            fontFamily: 'NunitoRegular',
                             fontSize: 14,
                           ),
                         ),
@@ -106,7 +107,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
             style: TextStyle(
               color: ColorConfig.colorBlack,
               fontSize: 16,
-              fontWeight: FontWeight.bold
+              fontFamily: 'NunitoBold'
             ),
             ),
           ),
@@ -135,6 +136,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                     child: Text("Pertanyaan 1",
                     style: TextStyle(
                       color: ColorConfig.colorGreenPrimary,
+                      fontFamily: 'NunitoSemiBold',
                       fontSize: 12,
                     ),
                     ),
@@ -145,7 +147,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                     style: TextStyle(
                       color: ColorConfig.colorBlack,
                       fontSize: 14,
-                      fontWeight: FontWeight.bold
+                      fontFamily: 'NunitoBold'
                     ),
                     ),
                   ),
@@ -167,6 +169,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                               child: Text("Ya",
                                 style: TextStyle(
                                   color: ColorConfig.colorWhite,
+                                  fontFamily: 'NunitoSemiBold',
                                   fontSize: 14,
                                 ),)),
                         ),
@@ -184,6 +187,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                               child: Text("Tidak",
                                 style: TextStyle(
                                   color: ColorConfig.colorGreenPrimary,
+                                  fontFamily: 'NunitoSemiBold',
                                   fontSize: 14,
                                 ),)),
                         )
@@ -219,6 +223,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                     child: Text("Pertanyaan 2",
                       style: TextStyle(
                         color: ColorConfig.colorGreenPrimary,
+                        fontFamily: 'NunitoSemiBold',
                         fontSize: 12,
                       ),
                     ),
@@ -229,7 +234,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                       style: TextStyle(
                           color: ColorConfig.colorBlack,
                           fontSize: 14,
-                          fontWeight: FontWeight.bold
+                        fontFamily: 'NunitoBold'
                       ),
                     ),
                   ),
@@ -251,6 +256,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                               child: Text("Ya",
                                 style: TextStyle(
                                   color: ColorConfig.colorWhite,
+                                  fontFamily: 'NunitoSemiBold',
                                   fontSize: 14,
                                 ),)),
                         ),
@@ -268,6 +274,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                               child: Text("Tidak",
                                 style: TextStyle(
                                   color: ColorConfig.colorGreenPrimary,
+                                  fontFamily: 'NunitoSemiBold',
                                   fontSize: 14,
                                 ),)),
                         )
@@ -303,6 +310,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                     child: Text("Pertanyaan 3",
                       style: TextStyle(
                         color: ColorConfig.colorGreenPrimary,
+                        fontFamily: 'NunitoSemiBold',
                         fontSize: 12,
                       ),
                     ),
@@ -313,7 +321,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                       style: TextStyle(
                           color: ColorConfig.colorBlack,
                           fontSize: 14,
-                          fontWeight: FontWeight.bold
+                        fontFamily: 'NunitoBold'
                       ),
                     ),
                   ),
@@ -335,6 +343,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                               child: Text("Ya",
                                 style: TextStyle(
                                   color: ColorConfig.colorWhite,
+                                  fontFamily: 'NunitoSemiBold',
                                   fontSize: 14,
                                 ),)),
                         ),
@@ -352,6 +361,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                               child: Text("Tidak",
                                 style: TextStyle(
                                   color: ColorConfig.colorGreenPrimary,
+                                  fontFamily: 'NunitoSemiBold',
                                   fontSize: 14,
                                 ),)),
                         )
@@ -387,6 +397,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                     child: Text("Pertanyaan 4",
                       style: TextStyle(
                         color: ColorConfig.colorGreenPrimary,
+                        fontFamily: 'NunitoSemiBold',
                         fontSize: 12,
                       ),
                     ),
@@ -397,7 +408,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                       style: TextStyle(
                           color: ColorConfig.colorBlack,
                           fontSize: 14,
-                          fontWeight: FontWeight.bold
+                        fontFamily: 'NunitoBold'
                       ),
                     ),
                   ),
@@ -419,6 +430,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                               child: Text("Ya",
                                 style: TextStyle(
                                   color: ColorConfig.colorWhite,
+                                  fontFamily: 'NunitoSemiBold',
                                   fontSize: 14,
                                 ),)),
                         ),
@@ -436,6 +448,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                               child: Text("Tidak",
                                 style: TextStyle(
                                   color: ColorConfig.colorGreenPrimary,
+                                  fontFamily: 'NunitoSemiBold',
                                   fontSize: 14,
                                 ),)),
                         )
@@ -471,6 +484,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                     child: Text("Pertanyaan 5",
                       style: TextStyle(
                         color: ColorConfig.colorGreenPrimary,
+                        fontFamily: 'NunitoSemiBold',
                         fontSize: 12,
                       ),
                     ),
@@ -481,7 +495,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                       style: TextStyle(
                           color: ColorConfig.colorBlack,
                           fontSize: 14,
-                          fontWeight: FontWeight.bold
+                        fontFamily: 'NunitoBold'
                       ),
                     ),
                   ),
@@ -503,6 +517,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                               child: Text("Ya",
                                 style: TextStyle(
                                   color: ColorConfig.colorWhite,
+                                  fontFamily: 'NunitoSemiBold',
                                   fontSize: 14,
                                 ),)),
                         ),
@@ -520,6 +535,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                               child: Text("Tidak",
                                 style: TextStyle(
                                   color: ColorConfig.colorGreenPrimary,
+                                  fontFamily: 'NunitoSemiBold',
                                   fontSize: 14,
                                 ),)),
                         )
@@ -555,6 +571,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                     child: Text("Pertanyaan 6",
                       style: TextStyle(
                         color: ColorConfig.colorGreenPrimary,
+                        fontFamily: 'NunitoSemiBold',
                         fontSize: 12,
                       ),
                     ),
@@ -565,7 +582,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                       style: TextStyle(
                           color: ColorConfig.colorBlack,
                           fontSize: 14,
-                          fontWeight: FontWeight.bold
+                        fontFamily: 'NunitoBold'
                       ),
                     ),
                   ),
@@ -587,6 +604,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                               child: Text("Ya",
                                 style: TextStyle(
                                   color: ColorConfig.colorWhite,
+                                  fontFamily: 'NunitoSemiBold',
                                   fontSize: 14,
                                 ),)),
                         ),
@@ -604,6 +622,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                               child: Text("Tidak",
                                 style: TextStyle(
                                   color: ColorConfig.colorGreenPrimary,
+                                  fontFamily: 'NunitoSemiBold',
                                   fontSize: 14,
                                 ),)),
                         )
@@ -639,6 +658,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                     child: Text("Pertanyaan 7",
                       style: TextStyle(
                         color: ColorConfig.colorGreenPrimary,
+                        fontFamily: 'NunitoSemiBold',
                         fontSize: 12,
                       ),
                     ),
@@ -649,7 +669,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                       style: TextStyle(
                           color: ColorConfig.colorBlack,
                           fontSize: 14,
-                          fontWeight: FontWeight.bold
+                        fontFamily: 'NunitoBold'
                       ),
                     ),
                   ),
@@ -671,6 +691,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                               child: Text("Ya",
                                 style: TextStyle(
                                   color: ColorConfig.colorWhite,
+                                  fontFamily: 'NunitoSemiBold',
                                   fontSize: 14,
                                 ),)),
                         ),
@@ -688,6 +709,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                               child: Text("Tidak",
                                 style: TextStyle(
                                   color: ColorConfig.colorGreenPrimary,
+                                  fontFamily: 'NunitoSemiBold',
                                   fontSize: 14,
                                 ),)),
                         )
@@ -705,7 +727,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
               style: TextStyle(
                   color: ColorConfig.colorBlack,
                   fontSize: 16,
-                  fontWeight: FontWeight.bold
+                fontFamily: 'NunitoBold'
               ),
             ),
           ),
@@ -734,6 +756,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                     child: Text("Pertanyaan 8",
                       style: TextStyle(
                         color: ColorConfig.colorGreenPrimary,
+                        fontFamily: 'NunitoSemiBold',
                         fontSize: 12,
                       ),
                     ),
@@ -744,7 +767,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                       style: TextStyle(
                           color: ColorConfig.colorBlack,
                           fontSize: 14,
-                          fontWeight: FontWeight.bold
+                        fontFamily: 'NunitoBold'
                       ),
                     ),
                   ),
@@ -766,6 +789,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                               child: Text("Ya",
                                 style: TextStyle(
                                   color: ColorConfig.colorWhite,
+                                  fontFamily: 'NunitoSemiBold',
                                   fontSize: 14,
                                 ),)),
                         ),
@@ -783,6 +807,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                               child: Text("Tidak",
                                 style: TextStyle(
                                   color: ColorConfig.colorGreenPrimary,
+                                  fontFamily: 'NunitoSemiBold',
                                   fontSize: 14,
                                 ),)),
                         )
@@ -800,7 +825,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
               style: TextStyle(
                   color: ColorConfig.colorBlack,
                   fontSize: 16,
-                  fontWeight: FontWeight.bold
+                fontFamily: 'NunitoBold'
               ),
             ),
           ),
@@ -829,6 +854,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                     child: Text("Pertanyaan 9",
                       style: TextStyle(
                         color: ColorConfig.colorGreenPrimary,
+                        fontFamily: 'NunitoSemiBold',
                         fontSize: 12,
                       ),
                     ),
@@ -839,7 +865,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                       style: TextStyle(
                           color: ColorConfig.colorBlack,
                           fontSize: 14,
-                          fontWeight: FontWeight.bold
+                        fontFamily: 'NunitoBold'
                       ),
                     ),
                   ),
@@ -861,6 +887,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                               child: Text("Ya",
                                 style: TextStyle(
                                   color: ColorConfig.colorWhite,
+                                  fontFamily: 'NunitoSemiBold',
                                   fontSize: 14,
                                 ),)),
                         ),
@@ -878,6 +905,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                               child: Text("Tidak",
                                 style: TextStyle(
                                   color: ColorConfig.colorGreenPrimary,
+                                  fontFamily: 'NunitoSemiBold',
                                   fontSize: 14,
                                 ),)),
                         )
@@ -913,6 +941,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                     child: Text("Pertanyaan 10",
                       style: TextStyle(
                         color: ColorConfig.colorGreenPrimary,
+                        fontFamily: 'NunitoSemiBold',
                         fontSize: 12,
                       ),
                     ),
@@ -923,7 +952,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                       style: TextStyle(
                           color: ColorConfig.colorBlack,
                           fontSize: 14,
-                          fontWeight: FontWeight.bold
+                        fontFamily: 'NunitoBold'
                       ),
                     ),
                   ),
@@ -945,6 +974,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                               child: Text("Ya",
                                 style: TextStyle(
                                   color: ColorConfig.colorWhite,
+                                  fontFamily: 'NunitoSemiBold',
                                   fontSize: 14,
                                 ),)),
                         ),
@@ -962,6 +992,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                               child: Text("Tidak",
                                 style: TextStyle(
                                   color: ColorConfig.colorGreenPrimary,
+                                  fontFamily: 'NunitoSemiBold',
                                   fontSize: 14,
                                 ),)),
                         )
@@ -997,6 +1028,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                     child: Text("Pertanyaan 11",
                       style: TextStyle(
                         color: ColorConfig.colorGreenPrimary,
+                        fontFamily: 'NunitoSemiBold',
                         fontSize: 12,
                       ),
                     ),
@@ -1007,7 +1039,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                       style: TextStyle(
                           color: ColorConfig.colorBlack,
                           fontSize: 14,
-                          fontWeight: FontWeight.bold
+                        fontFamily: 'NunitoBold'
                       ),
                     ),
                   ),
@@ -1029,6 +1061,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                               child: Text("Ya",
                                 style: TextStyle(
                                   color: ColorConfig.colorWhite,
+                                  fontFamily: 'NunitoSemiBold',
                                   fontSize: 14,
                                 ),)),
                         ),
@@ -1046,6 +1079,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                               child: Text("Tidak",
                                 style: TextStyle(
                                   color: ColorConfig.colorGreenPrimary,
+                                  fontFamily: 'NunitoSemiBold',
                                   fontSize: 14,
                                 ),)),
                         )
@@ -1069,6 +1103,7 @@ class _TesCovidQuestionViewState extends State<TesCovidQuestionView> {
                 child: Text("Lihat Hasil Pengecekan",
                   style: TextStyle(
                     color: ColorConfig.colorWhite,
+                    fontFamily: 'NunitoSemiBold',
                     fontSize: 14,
                   ),)),
           ),

@@ -17,6 +17,13 @@ class _KasusViewState extends State<KasusView> {
     {"image": "asset/image/backgroundKasusTerbanyak.png"}
   ];
 
+  var dataVaksin =[
+    {"image": "asset/image/vaksinBanner.png"},
+    {"image": "asset/image/vaksinBanner.png"},
+    {"image": "asset/image/vaksinBanner.png"},
+    {"image": "asset/image/vaksinBanner.png"},
+  ];
+
   Widget appBar() {
     return Container(
       height: 100,
@@ -27,7 +34,7 @@ class _KasusViewState extends State<KasusView> {
             style: TextStyle(
                 color: ColorConfig.colorWhite,
                 fontSize: 18,
-                fontWeight: FontWeight.bold
+                fontFamily: 'NunitoBold'
             ),),
           Container(
             width: 320,
@@ -37,6 +44,7 @@ class _KasusViewState extends State<KasusView> {
               textAlign: TextAlign.start,
               style: TextStyle(
                 color: ColorConfig.colorWhite,
+                fontFamily: 'NunitoRegular',
                 fontSize: 14,
               ),),
           )
@@ -103,6 +111,7 @@ class _KasusViewState extends State<KasusView> {
                         child: Text("Indonesia",
                             style: TextStyle(
                                 color: ColorConfig.colorBlack,
+                              fontFamily: 'NunitoRegular',
                               fontSize: 14,
                             )),
                       ),
@@ -146,6 +155,7 @@ class _KasusViewState extends State<KasusView> {
                             child: Text("Total",
                               style: TextStyle(
                               color: ColorConfig.colorWhite,
+                                fontFamily: 'NunitoSemiBold',
                                 fontSize: 14,
                             ),),
                       )),
@@ -155,6 +165,7 @@ class _KasusViewState extends State<KasusView> {
                               child: Text("Hari ini",
                                 style: TextStyle(
                                     color: ColorConfig.colorBlack,
+                                  fontFamily: 'NunitoSemiBold',
                                   fontSize: 14,
                                 ),),
                             )),
@@ -164,6 +175,7 @@ class _KasusViewState extends State<KasusView> {
                             child: Text("Kemarin",
                               style: TextStyle(
                                   color: ColorConfig.colorBlack,
+                                fontFamily: 'NunitoSemiBold',
                                 fontSize: 14
                               ),),
                           )),
@@ -208,6 +220,7 @@ class _KasusViewState extends State<KasusView> {
                             child: Text("Terinfeksi",
                                 style: TextStyle(
                                     color: ColorConfig.colorBlack,
+                                    fontFamily: 'NunitoRegular',
                                     fontSize: 12)),
                           ),
                           Container(
@@ -216,13 +229,14 @@ class _KasusViewState extends State<KasusView> {
                                 style: TextStyle(
                                     color: ColorConfig.colorIconTerinfeksi,
                                     fontSize: 14,
-                                    fontWeight: FontWeight.bold)),
+                                    fontFamily: 'NunitoBold')),
                           ),
                           Container(
                             margin: EdgeInsets.only(top: 10),
                             child: Text("+41.168",
                                 style: TextStyle(
                                   color: ColorConfig.colorGrey,
+                                  fontFamily: 'NunitoRegular',
                                   fontSize: 10,
                                 )),
                           ),
@@ -258,6 +272,7 @@ class _KasusViewState extends State<KasusView> {
                             child: Text("Sembuh",
                                 style: TextStyle(
                                     color: ColorConfig.colorBlack,
+                                    fontFamily: 'NunitoRegular',
                                     fontSize: 12)),
                           ),
                           Container(
@@ -266,13 +281,14 @@ class _KasusViewState extends State<KasusView> {
                                 style: TextStyle(
                                     color: ColorConfig.colorGreenPrimary,
                                     fontSize: 14,
-                                    fontWeight: FontWeight.bold)),
+                                    fontFamily: 'NunitoBold')),
                           ),
                           Container(
                             margin: EdgeInsets.only(top: 10),
                             child: Text("+44.550",
                                 style: TextStyle(
                                   color: ColorConfig.colorGrey,
+                                  fontFamily: 'NunitoRegular',
                                   fontSize: 10,
                                 )),
                           ),
@@ -308,6 +324,7 @@ class _KasusViewState extends State<KasusView> {
                             child: Text("Meninggal",
                                 style: TextStyle(
                                     color: ColorConfig.colorBlack,
+                                    fontFamily: 'NunitoRegular',
                                     fontSize: 12)),
                           ),
                           Container(
@@ -316,13 +333,14 @@ class _KasusViewState extends State<KasusView> {
                                 style: TextStyle(
                                     color: ColorConfig.colorIconKematian,
                                     fontSize: 14,
-                                    fontWeight: FontWeight.bold)),
+                                    fontFamily: 'NunitoBold')),
                           ),
                           Container(
                             margin: EdgeInsets.only(top: 10),
                             child: Text("+1.759",
                                 style: TextStyle(
                                   color: ColorConfig.colorGrey,
+                                  fontFamily: 'NunitoRegular',
                                   fontSize: 10,
                                 )),
                           ),
@@ -363,6 +381,7 @@ class _KasusViewState extends State<KasusView> {
                             child: Text("Kasus Aktif",
                               style: TextStyle(
                                   color: ColorConfig.colorWhite,
+                                fontFamily: 'NunitoSemiBold',
                                 fontSize: 14,
                               ),),
                           )),
@@ -372,6 +391,7 @@ class _KasusViewState extends State<KasusView> {
                               child: Text("Sembuh",
                                 style: TextStyle(
                                     color: ColorConfig.colorBlack,
+                                  fontFamily: 'NunitoSemiBold',
                                   fontSize: 14,
                                 ),),
                             )),
@@ -381,6 +401,7 @@ class _KasusViewState extends State<KasusView> {
                             child: Text("Meninggal",
                               style: TextStyle(
                                   color: ColorConfig.colorBlack,
+                                fontFamily: 'NunitoSemiBold',
                                 fontSize: 14
                               ),),
                           )),
@@ -406,7 +427,7 @@ class _KasusViewState extends State<KasusView> {
                         child: Text("Kasus Terbanyak",
                             style: TextStyle(
                               color: ColorConfig.colorBlack,
-                              fontWeight: FontWeight.bold,
+                              fontFamily: 'NunitoBold',
                               fontSize: 16,
                             )),
                       ),
@@ -418,6 +439,7 @@ class _KasusViewState extends State<KasusView> {
                     child: Text("Lihat Semua",
                       style: TextStyle(
                           color: ColorConfig.colorGreenPrimary,
+                          fontFamily: 'NunitoRegular',
                           fontSize: 12
                       ),)),
 
@@ -465,7 +487,7 @@ class _KasusViewState extends State<KasusView> {
                     child: Text("Vaksinisasi Indonesia",
                         style: TextStyle(
                           color: ColorConfig.colorBlack,
-                          fontWeight: FontWeight.bold,
+                          fontFamily: 'NunitoBold',
                           fontSize: 16,
                         )),
                   ),
@@ -500,7 +522,7 @@ class _KasusViewState extends State<KasusView> {
                     borderRadius: BorderRadius.circular(8),
                     image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: AssetImage(dataKasusTerbanyak[index]["image"])
+                        image: AssetImage(dataVaksin[index]["image"])
                     )
                 ),
               );
@@ -519,6 +541,7 @@ class _KasusViewState extends State<KasusView> {
               kasusTerbanyak(),
               bannerKasusTerbanyak(),
               vaksin(),
+              bannervaksin()
             ],
           ),
         ),

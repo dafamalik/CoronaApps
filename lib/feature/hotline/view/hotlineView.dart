@@ -14,7 +14,6 @@ class _HotlineViewState extends State<HotlineView> {
   Widget appBar() {
     return Container(
       height: 100,
-      width: 333,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -30,7 +29,7 @@ class _HotlineViewState extends State<HotlineView> {
                     style: TextStyle(
                         color: ColorConfig.colorWhite,
                         fontSize: 18,
-                        fontWeight: FontWeight.bold
+                        fontFamily: 'NunitoBold'
                     ),),
                 ],
               ),
@@ -77,6 +76,11 @@ class _HotlineViewState extends State<HotlineView> {
                     decoration: InputDecoration(
                         prefixIcon: Icon(Icons.search),
                         labelText: "Cari nama daerah",
+                        labelStyle: TextStyle(
+                          fontSize: 14,
+                          color: ColorConfig.colorGrey,
+                          fontFamily: 'NunitoRegular'
+                        ),
                         border: InputBorder.none),
                   ),
                 ),
@@ -88,8 +92,8 @@ class _HotlineViewState extends State<HotlineView> {
 
   Widget hospitalPhone() {
     return Container(
+      height: 630,
       margin: EdgeInsets.only(left: 24, right: 24),
-      height: 600,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -114,6 +118,7 @@ class _HotlineViewState extends State<HotlineView> {
                   child: Text("Layanan Nasional Covid-19",
                   style: TextStyle(
                     color: ColorConfig.colorBlack,
+                    fontFamily: 'NunitoRegular',
                     fontSize: 14
                   ),),
                 ),
@@ -129,6 +134,7 @@ class _HotlineViewState extends State<HotlineView> {
                         child: Text("119",
                           style: TextStyle(
                             fontSize: 14,
+                            fontFamily: 'NunitoRegular',
                             color: ColorConfig.colorBlack
                           ),),
                       )
@@ -144,7 +150,7 @@ class _HotlineViewState extends State<HotlineView> {
             style: TextStyle(
               color: ColorConfig.colorBlack,
               fontSize: 14,
-              fontWeight: FontWeight.bold
+              fontFamily: 'NunitoBold'
             ),),
           ),
           Container(
@@ -177,6 +183,7 @@ class _HotlineViewState extends State<HotlineView> {
                         child: Text("Pemerintah Daerah Aceh",
                           style: TextStyle(
                               color: ColorConfig.colorBlack,
+                              fontFamily: 'NunitoRegular',
                               fontSize: 14
                           ),),
                       ),
@@ -192,7 +199,8 @@ class _HotlineViewState extends State<HotlineView> {
                               child: Text("+62876898765321",
                                 style: TextStyle(
                                     fontSize: 14,
-                                    color: ColorConfig.colorBlack
+                                    color: ColorConfig.colorBlack,
+                                  fontFamily: 'NunitoRegular'
                                 ),),
                             )
                           ],
@@ -210,6 +218,7 @@ class _HotlineViewState extends State<HotlineView> {
                         child: Text("RSUD Dr Zainoel Abadin, Banda Aceh",
                           style: TextStyle(
                               color: ColorConfig.colorBlack,
+                              fontFamily: 'NunitoRegular',
                               fontSize: 14
                           ),),
                       ),
@@ -225,6 +234,7 @@ class _HotlineViewState extends State<HotlineView> {
                               child: Text("+62876898765321",
                                 style: TextStyle(
                                     fontSize: 14,
+                                    fontFamily: 'NunitoRegular',
                                     color: ColorConfig.colorBlack
                                 ),),
                             )
@@ -243,7 +253,7 @@ class _HotlineViewState extends State<HotlineView> {
               style: TextStyle(
                   color: ColorConfig.colorBlack,
                   fontSize: 14,
-                  fontWeight: FontWeight.bold
+                  fontFamily: 'NunitoBold'
               ),),
           ),
           Container(
@@ -268,6 +278,7 @@ class _HotlineViewState extends State<HotlineView> {
                   child: Text("RSUD Sanjiwani, Gianyar",
                     style: TextStyle(
                         color: ColorConfig.colorBlack,
+                        fontFamily: 'NunitoRegular',
                         fontSize: 14
                     ),),
                 ),
@@ -283,6 +294,7 @@ class _HotlineViewState extends State<HotlineView> {
                         child: Text("+62876898765321",
                           style: TextStyle(
                               fontSize: 14,
+                              fontFamily: 'NunitoRegular',
                               color: ColorConfig.colorBlack
                           ),),
                       )
@@ -298,7 +310,7 @@ class _HotlineViewState extends State<HotlineView> {
               style: TextStyle(
                   color: ColorConfig.colorBlack,
                   fontSize: 14,
-                  fontWeight: FontWeight.bold
+                fontFamily: 'NunitoBold'
               ),),
           ),
           Container(
@@ -323,6 +335,7 @@ class _HotlineViewState extends State<HotlineView> {
                   child: Text("RSU Kabupaten Tangerang, Kota Tangerang",
                     style: TextStyle(
                         color: ColorConfig.colorBlack,
+                        fontFamily: 'NunitoRegular',
                         fontSize: 14
                     ),),
                 ),
@@ -338,6 +351,7 @@ class _HotlineViewState extends State<HotlineView> {
                         child: Text("+62215577280",
                           style: TextStyle(
                               fontSize: 14,
+                              fontFamily: 'NunitoRegular',
                               color: ColorConfig.colorBlack
                           ),),
                       )
