@@ -74,6 +74,102 @@ class _HomeViewState extends State<HomeView> {
     super.initState();
   }
 
+  Widget showDetailCase(BuildContext context, String type, String lokasi, String jumlah) {
+
+    print(type);
+
+     showDialog(
+      context: context,
+       builder: (builder) => Dialog(
+         insetPadding: EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 16),
+         child: Container(
+           padding: EdgeInsets.all(16),
+           height: MediaQuery.of(context).size.height / (5/2),
+           child: Column(
+             crossAxisAlignment: CrossAxisAlignment.center,
+             children: [
+               Row(
+                 crossAxisAlignment: CrossAxisAlignment.center,
+                 mainAxisAlignment: MainAxisAlignment.center,
+                 children: [
+                   Container(
+                     padding: EdgeInsets.only(right: 16, left: 16),
+                     child: Image(
+                       height: 60,
+                       width: 60,
+                       image: AssetImage(type == "Terinfeksi" ? "asset/image/coronaVirusYellow.png" : type == "Sembuh" ? "asset/image/sembuh.png" : "asset/image/kematian.png"),
+                     ),
+                   ),
+                   Expanded(
+                     child: Column(
+                         crossAxisAlignment: CrossAxisAlignment.start,
+                         mainAxisAlignment: MainAxisAlignment.center,
+                         children: [
+                           Text("Total Kasus " + type, style: TextStyle(
+                             fontSize: 16,
+                             fontFamily: "NunitoBold"
+                           )),
+                           Row(
+                               crossAxisAlignment: CrossAxisAlignment.center,
+                               mainAxisAlignment: MainAxisAlignment.start,
+                               children: [
+                             Container(
+                               padding: EdgeInsets.only(right: 8),
+                               child: Image(
+                                 image: AssetImage("asset/image/indo.png"),
+                                 width: 19,
+                                 height: 19,
+                               ),
+                             ),
+                             Text(lokasi)
+                           ])
+                         ],
+                       ),
+                   ),
+                 ],
+               ),
+               Container(
+                 height: 1,
+                 margin: EdgeInsets.all(8),
+                 color: Colors.grey[200],
+               ),
+               Container(
+                 padding: EdgeInsets.all(8),
+                   child: Text("Jumlah")),
+               Container(
+                 padding: EdgeInsets.all(8),
+                 child: Text(jumlah, style: TextStyle(
+                  fontSize: 36,
+                   fontFamily: "NunitoBold",
+                   color: Color(type == "Terinfeksi" ? 0XFFF2A01C : type == "Sembuh" ? 0XFF15AB2D : 0XFFCA0B0B)
+                 )),
+               ),
+               Expanded(
+                 child: Align(
+                   alignment: Alignment.bottomCenter,
+                   child: Container(
+                     margin: EdgeInsets.all(8),
+                     decoration: BoxDecoration(
+                       borderRadius: BorderRadius.circular(10),
+                       border: Border.all(color: Color(0XFF7C7C7C), width: 1)
+                     ),
+                     child: FlatButton(
+                         onPressed: () => {
+                           Navigator.pop(context)
+                         },
+                         child: Text("Tutup")
+                     ),
+                   ),
+                 ),
+               )
+             ],
+           ),
+         ),
+       )
+    );
+
+  }
+
   Widget locationDialog(BuildContext context) {
     return Dialog(
       insetPadding: EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 16),
@@ -432,32 +528,40 @@ class _HomeViewState extends State<HomeView> {
                                 ),
                               ],
                             ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Image(
-                                    image: AssetImage(
-                                        "asset/image/coronaVirusYellow.png"),
-                                    width: 36,
-                                    height: 36),
-                                Container(
-                                  margin: EdgeInsets.only(top: 10),
-                                  child: Text("Terinfeksi",
-                                      style: TextStyle(
-                                          color: ColorConfig.colorBlack,
-                                          fontFamily: "NunitoRegular",
-                                          fontSize: 12)),
+                            child: Material(
+                              color: Colors.transparent,
+                              child: InkWell(
+                                onTap: () => {
+                                  showDetailCase(context, "Terinfeksi", location, snapshoot.data.positif)
+                                },
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Image(
+                                        image: AssetImage(
+                                            "asset/image/coronaVirusYellow.png"),
+                                        width: 36,
+                                        height: 36),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 10),
+                                      child: Text("Terinfeksi",
+                                          style: TextStyle(
+                                              color: ColorConfig.colorBlack,
+                                              fontFamily: "NunitoRegular",
+                                              fontSize: 12)),
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 10),
+                                      child: Text(ConverterHelper.stringToDouble(snapshoot.data.positif),
+                                          style: TextStyle(
+                                              color:
+                                                  ColorConfig.colorIconTerinfeksi,
+                                              fontSize: 14,
+                                              fontFamily: "NunitoBold")),
+                                    )
+                                  ],
                                 ),
-                                Container(
-                                  margin: EdgeInsets.only(top: 10),
-                                  child: Text(ConverterHelper.stringToDouble(snapshoot.data.positif),
-                                      style: TextStyle(
-                                          color:
-                                              ColorConfig.colorIconTerinfeksi,
-                                          fontSize: 14,
-                                          fontFamily: "NunitoBold")),
-                                )
-                              ],
+                              ),
                             ),
                           ),
                           Container(
@@ -479,30 +583,39 @@ class _HomeViewState extends State<HomeView> {
                                 ),
                               ],
                             ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Image(
-                                    image: AssetImage("asset/image/sembuh.png"),
-                                    width: 36,
-                                    height: 36),
-                                Container(
-                                  margin: EdgeInsets.only(top: 10),
-                                  child: Text("Sembuh",
-                                      style: TextStyle(
-                                          color: ColorConfig.colorBlack,
-                                          fontFamily: "NunitoRegular",
-                                          fontSize: 12)),
+                            child: Material(
+                              color: Colors.transparent,
+                              child: InkWell(
+                                    onTap: () => {
+
+                                      showDetailCase(context, "Sembuh", location, snapshoot.data.sembuh)
+                                    },
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Image(
+                                        image: AssetImage("asset/image/sembuh.png"),
+                                        width: 36,
+                                        height: 36),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 10),
+                                      child: Text("Sembuh",
+                                          style: TextStyle(
+                                              color: ColorConfig.colorBlack,
+                                              fontFamily: "NunitoRegular",
+                                              fontSize: 12)),
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 10),
+                                      child: Text(ConverterHelper.stringToDouble(snapshoot.data.sembuh),
+                                          style: TextStyle(
+                                              color: ColorConfig.colorGreenPrimary,
+                                              fontSize: 14,
+                                              fontFamily: "NunitoBold")),
+                                    )
+                                  ],
                                 ),
-                                Container(
-                                  margin: EdgeInsets.only(top: 10),
-                                  child: Text(ConverterHelper.stringToDouble(snapshoot.data.sembuh),
-                                      style: TextStyle(
-                                          color: ColorConfig.colorGreenPrimary,
-                                          fontSize: 14,
-                                          fontFamily: "NunitoBold")),
-                                )
-                              ],
+                              ),
                             ),
                           ),
                           Container(
@@ -523,31 +636,39 @@ class _HomeViewState extends State<HomeView> {
                                 ),
                               ],
                             ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Image(
-                                  image: AssetImage("asset/image/kematian.png"),
-                                  width: 36,
-                                  height: 36,
+                            child: Material(
+                              color: Colors.transparent,
+                              child: InkWell(
+                                onTap: () => {
+                                  showDetailCase(context, "Meninggal", location, snapshoot.data.meninggal)
+                                },
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Image(
+                                      image: AssetImage("asset/image/kematian.png"),
+                                      width: 36,
+                                      height: 36,
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 10),
+                                      child: Text("Meninggal",
+                                          style: TextStyle(
+                                              color: ColorConfig.colorBlack,
+                                              fontFamily: "NunitoRegular",
+                                              fontSize: 12)),
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 10),
+                                      child: Text(ConverterHelper.stringToDouble(snapshoot.data.meninggal),
+                                          style: TextStyle(
+                                              color: ColorConfig.colorIconKematian,
+                                              fontSize: 14,
+                                              fontFamily: "NunitoBold")),
+                                    )
+                                  ],
                                 ),
-                                Container(
-                                  margin: EdgeInsets.only(top: 10),
-                                  child: Text("Meninggal",
-                                      style: TextStyle(
-                                          color: ColorConfig.colorBlack,
-                                          fontFamily: "NunitoRegular",
-                                          fontSize: 12)),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.only(top: 10),
-                                  child: Text(ConverterHelper.stringToDouble(snapshoot.data.meninggal),
-                                      style: TextStyle(
-                                          color: ColorConfig.colorIconKematian,
-                                          fontSize: 14,
-                                          fontFamily: "NunitoBold")),
-                                )
-                              ],
+                              ),
                             ),
                           )
                         ],
@@ -598,32 +719,40 @@ class _HomeViewState extends State<HomeView> {
                                 ),
                               ],
                             ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Image(
-                                    image: AssetImage(
-                                        "asset/image/coronaVirusYellow.png"),
-                                    width: 36,
-                                    height: 36),
-                                Container(
-                                  margin: EdgeInsets.only(top: 10),
-                                  child: Text("Terinfeksi",
-                                      style: TextStyle(
-                                          color: ColorConfig.colorBlack,
-                                          fontFamily: "NunitoRegular",
-                                          fontSize: 12)),
+                            child: Material(
+                              color: Colors.transparent,
+                              child: InkWell(
+                                onTap: () => {
+                                  showDetailCase(context, "Terinfeksi", location, filteredLocation.attributes.kasusPosi.toString())
+                                },
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Image(
+                                        image: AssetImage(
+                                            "asset/image/coronaVirusYellow.png"),
+                                        width: 36,
+                                        height: 36),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 10),
+                                      child: Text("Terinfeksi",
+                                          style: TextStyle(
+                                              color: ColorConfig.colorBlack,
+                                              fontFamily: "NunitoRegular",
+                                              fontSize: 12)),
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 10),
+                                      child: Text(ConverterHelper.stringToDouble(filteredLocation.attributes.kasusPosi.toString()),
+                                          style: TextStyle(
+                                              color:
+                                              ColorConfig.colorIconTerinfeksi,
+                                              fontSize: 14,
+                                              fontFamily: "NunitoBold")),
+                                    ),
+                                  ],
                                 ),
-                                Container(
-                                  margin: EdgeInsets.only(top: 10),
-                                  child: Text(ConverterHelper.stringToDouble(filteredLocation.attributes.kasusPosi.toString()),
-                                      style: TextStyle(
-                                          color:
-                                          ColorConfig.colorIconTerinfeksi,
-                                          fontSize: 14,
-                                          fontFamily: "NunitoBold")),
-                                ),
-                              ],
+                              ),
                             ),
                           ),
                           Container(
@@ -645,30 +774,38 @@ class _HomeViewState extends State<HomeView> {
                                 ),
                               ],
                             ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Image(
-                                    image: AssetImage("asset/image/sembuh.png"),
-                                    width: 36,
-                                    height: 36),
-                                Container(
-                                  margin: EdgeInsets.only(top: 10),
-                                  child: Text("Sembuh",
-                                      style: TextStyle(
-                                          color: ColorConfig.colorBlack,
-                                          fontFamily: "NunitoRegular",
-                                          fontSize: 12)),
+                            child: Material(
+                              color: Colors.transparent,
+                              child: InkWell(
+                                onTap: () => {
+                                  showDetailCase(context, "Sembuh", location, filteredLocation.attributes.kasusSemb.toString())
+                                },
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Image(
+                                        image: AssetImage("asset/image/sembuh.png"),
+                                        width: 36,
+                                        height: 36),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 10),
+                                      child: Text("Sembuh",
+                                          style: TextStyle(
+                                              color: ColorConfig.colorBlack,
+                                              fontFamily: "NunitoRegular",
+                                              fontSize: 12)),
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 10),
+                                      child: Text(ConverterHelper.stringToDouble(filteredLocation.attributes.kasusSemb.toString()),
+                                          style: TextStyle(
+                                              color: ColorConfig.colorGreenPrimary,
+                                              fontSize: 14,
+                                              fontFamily: "NunitoBold")),
+                                    )
+                                  ],
                                 ),
-                                Container(
-                                  margin: EdgeInsets.only(top: 10),
-                                  child: Text(ConverterHelper.stringToDouble(filteredLocation.attributes.kasusSemb.toString()),
-                                      style: TextStyle(
-                                          color: ColorConfig.colorGreenPrimary,
-                                          fontSize: 14,
-                                          fontFamily: "NunitoBold")),
-                                )
-                              ],
+                              ),
                             ),
                           ),
                           Container(
@@ -689,31 +826,39 @@ class _HomeViewState extends State<HomeView> {
                                 ),
                               ],
                             ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Image(
-                                  image: AssetImage("asset/image/kematian.png"),
-                                  width: 36,
-                                  height: 36,
+                            child: Material(
+                              color: Colors.transparent,
+                              child: InkWell(
+                                onTap: () => {
+                                  showDetailCase(context, "Meninggal", location, filteredLocation.attributes.kasusMeni.toString())
+                                },
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Image(
+                                      image: AssetImage("asset/image/kematian.png"),
+                                      width: 36,
+                                      height: 36,
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 10),
+                                      child: Text("Meninggal",
+                                          style: TextStyle(
+                                              color: ColorConfig.colorBlack,
+                                              fontFamily: "NunitoRegular",
+                                              fontSize: 12)),
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 10),
+                                      child: Text(ConverterHelper.stringToDouble(filteredLocation.attributes.kasusMeni.toString()),
+                                          style: TextStyle(
+                                              color: ColorConfig.colorIconKematian,
+                                              fontSize: 14,
+                                              fontFamily: "NunitoBold")),
+                                    )
+                                  ],
                                 ),
-                                Container(
-                                  margin: EdgeInsets.only(top: 10),
-                                  child: Text("Meninggal",
-                                      style: TextStyle(
-                                          color: ColorConfig.colorBlack,
-                                          fontFamily: "NunitoRegular",
-                                          fontSize: 12)),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.only(top: 10),
-                                  child: Text(ConverterHelper.stringToDouble(filteredLocation.attributes.kasusMeni.toString()),
-                                      style: TextStyle(
-                                          color: ColorConfig.colorIconKematian,
-                                          fontSize: 14,
-                                          fontFamily: "NunitoBold")),
-                                )
-                              ],
+                              ),
                             ),
                           )
                         ],
