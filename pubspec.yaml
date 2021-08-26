@@ -19,6 +19,7 @@ dependencies:
   webfeed: ^0.7.0
   flutter_inappwebview: ^5.3.2
   timeago: ^3.1.0
+  youtube_player_flutter: ^8.0.0
 
 dev_dependencies:
   flutter_test:
@@ -54,3 +55,55 @@ flutter:
     - asset/image/resikoRendah.png
     - asset/image/headerHasil.png
     - asset/image/vaksinBanner.png
+    - asset/image/hasilRentan.png
+    - asset/image/hasilResikoRendah.png
+    - asset/image/hasilSangatBeresiko.png
+    - asset/image/hasilWaspada.png
+    - asset/image/onBoarding1.png
+    - asset/image/onBoardingFooter.png
+    - asset/image/onBoarding2.png
+    - asset/image/onBoarding3.png
+
+  fonts:
+    - family: NunitoBlack
+      fonts:
+        - asset: asset/fonts/Nunito/Nunito-Black.ttf
+    - family: NunitoBlackItalic
+      fonts:
+        - asset: asset/fonts/Nunito/Nunito-BlackItalic.ttf
+    - family: NunitoBold
+      fonts:
+        - asset: asset/fonts/Nunito/Nunito-Bold.ttf
+    - family: NunitoBoldItalic
+      fonts:
+        - asset: asset/fonts/Nunito/Nunito-BoldItalic.ttf
+    - family: NunitoExtraBold
+      fonts:
+        - asset: asset/fonts/Nunito/Nunito-ExtraBold.ttf
+    - family: NunitoExtraBoldItalic
+      fonts:
+        - asset: asset/fonts/Nunito/Nunito-ExtraBoldItalic.ttf
+    - family: NunitoExtraLight
+      fonts:
+        - asset: asset/fonts/Nunito/Nunito-ExtraLight.ttf
+    - family: NunitoExtraLightItalic
+      fonts:
+        - asset: asset/fonts/Nunito/Nunito-ExtraLightItalic.ttf
+    - family: NunitoItalic
+      fonts:
+        - asset: asset/fonts/Nunito/Nunito-Italic.ttf
+    - family: NunitoLight
+      fonts:
+        - asset: asset/fonts/Nunito/Nunito-Light.ttf
+    - family: NunitoLightItalic
+      fonts:
+        - asset: asset/fonts/Nunito/Nunito-lightItalic.ttf
+    - family: NunitoRegular
+      fonts:
+        - asset: asset/fonts/Nunito/Nunito-Regular.ttf
+    - family: NunitoSemiBold
+      fonts:
+        - asset: asset/fonts/Nunito/Nunito-Semibold.ttf
+    - family: NunitoSemiBoldItalic
+      fonts:
+        - asset: asset/fonts/Nunito/Nunito-SemiBoldItalic.ttf

@@ -2,9 +2,12 @@ import 'package:corona_apps/config/color/colorConfig.dart';
 import 'package:corona_apps/config/helper/converterHelper.dart';
 import 'package:corona_apps/config/helper/timeAgoHelper.dart';
 import 'package:corona_apps/feature/detailNews/view/detailNews.dart';
+import 'package:corona_apps/feature/home/model/locationModel.dart';
 import 'package:corona_apps/feature/home/model/staticticModel.dart';
+import 'package:corona_apps/feature/home/model/youtubePlaylistModel.dart';
 import 'package:corona_apps/feature/home/service/homeService.dart';
 import 'package:corona_apps/feature/home/view/tesCovidView.dart';
+import 'package:corona_apps/feature/home/view/videoPlayerView.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:webfeed/domain/rss_feed.dart';
@@ -18,6 +21,7 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   var service = HomeService();
+  var location = "Indonesia";
 
   var dataSeputarCovid = [
     {"image": "asset/image/beritaCovid.jpg"},
@@ -41,6 +45,27 @@ class _HomeViewState extends State<HomeView> {
 
   }
 
+  void selectLocation(String selectedLocation) {
+
+    Future.delayed(Duration(milliseconds: 500),() {
+
+      setState(() {
+        location = selectedLocation;
+      });
+
+    Navigator.pop(context);
+    });
+
+  }
+
+  void gotoDetailMovie(PlaylistItems items) {
+
+    Future.delayed(Duration(milliseconds: 500),() {
+
+      Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => VideoPlayerView(items: items,)));
+    });
+  }
+
   @override
   void initState() {
 
@@ -50,19 +75,77 @@ class _HomeViewState extends State<HomeView> {
   }
 
   Widget locationDialog(BuildContext context) {
-    return AlertDialog(
-      title: Text("Pilih Lokasi"),
-      content: Container(
-        height: 500,
-        child: ListView.builder(
-          itemCount: 40,
-          itemBuilder: (ctx, idx) {
-
-            return Container(
+    return Dialog(
+      insetPadding: EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 16),
+      child: Container(
+        padding: EdgeInsets.all(8),
+        height: MediaQuery.of(context).size.height / (4/3),
+        child: Column(
+          children: [
+            Text("Pilih Lokasi"),
+          Container(
               height: 50,
-                child: Text("Tesss")
-            );
-          },
+              child: Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  onTap: () => {
+                    selectLocation("Indonesia")
+                  },
+                  child: Container(
+                      alignment: Alignment.centerLeft,
+                      child: Text("Indonesia")
+                  ),
+                ),
+              )
+          ),
+            Expanded(
+              child: StreamBuilder(
+                stream: service.getLocations().asStream(),
+                builder: (context, AsyncSnapshot<List<LocationModel>> snapshoot) {
+
+                  if(snapshoot.hasData) {
+
+                    return ListView.builder(
+                      itemCount: snapshoot.data.length,
+                      itemBuilder: (ctx, idx) {
+
+                        print(snapshoot.data[idx].toJson());
+
+                        return Container(
+                            height: 50,
+                            child: Material(
+                              color: Colors.transparent,
+                              child: InkWell(
+                                onTap: () => {
+                                  selectLocation(snapshoot.data[idx].attributes.provinsi)
+                                },
+                                child: Container(
+                                  alignment: Alignment.centerLeft,
+                                    child: Text(snapshoot.data[idx].attributes.provinsi)
+                                ),
+                              ),
+                            )
+                        );
+                      },
+                    );
+                  } else if(snapshoot.hasError){
+
+                    return Container(
+                      child: Center(
+                        child: Text(snapshoot.error.toString()),
+                      ),
+                    );
+                  }
+
+                  return Container(
+                    child: Center(
+                      child: Text("mengunduh lokasi ..."),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -79,7 +162,8 @@ class _HomeViewState extends State<HomeView> {
             style: TextStyle(
                 color: ColorConfig.colorWhite,
                 fontSize: 18,
-                fontWeight: FontWeight.bold),
+              fontFamily: 'NunitoBold',
+            ),
           ),
           Container(
             width: 308,
@@ -91,6 +175,7 @@ class _HomeViewState extends State<HomeView> {
               style: TextStyle(
                 color: ColorConfig.colorWhite,
                 fontSize: 14,
+                fontFamily: 'NunitoRegular'
               ),
             ),
           ),
@@ -167,7 +252,7 @@ class _HomeViewState extends State<HomeView> {
                                 style: TextStyle(
                                     fontSize: 14,
                                     color: ColorConfig.colorBlack,
-                                    fontWeight: FontWeight.bold)),
+                                    fontFamily: 'NunitoBold')),
                             Container(
                               width: 200,
                               margin: EdgeInsets.only(top: 8),
@@ -177,7 +262,9 @@ class _HomeViewState extends State<HomeView> {
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
                                       fontSize: 12,
-                                      color: ColorConfig.colorGrey)),
+                                      color: ColorConfig.colorGrey,
+                                    fontFamily: 'NunitoRegular'
+                                  )),
                             ),
                           ],
                         ),
@@ -207,7 +294,7 @@ class _HomeViewState extends State<HomeView> {
                             child: Text("Update Terbaru Covid-19",
                                 style: TextStyle(
                                   color: ColorConfig.colorBlack,
-                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'NunitoBold',
                                   fontSize: 16,
                                 )),
                           ),
@@ -216,7 +303,9 @@ class _HomeViewState extends State<HomeView> {
                             child: Text(
                               "Update terakhir 31 Juli 2021 - 08:16 WIB",
                               style: TextStyle(
-                                  color: ColorConfig.colorGrey, fontSize: 12),
+                                  color: ColorConfig.colorGrey,
+                                  fontFamily: 'NunitoRegular',
+                                  fontSize: 12),
                             ),
                           )
                         ],
@@ -288,9 +377,11 @@ class _HomeViewState extends State<HomeView> {
                         Expanded(
                           child: Container(
                             margin: EdgeInsets.only(left: 16),
-                            child: Text("Indonesia",
+                            child: Text(location,
                                 style: TextStyle(
-                                    color: ColorConfig.colorBlack, fontSize: 14)),
+                                    color: ColorConfig.colorBlack,
+                                    fontFamily: 'NunitoRegular',
+                                    fontSize: 14)),
                           ),
                         ),
                         IconButton(
@@ -314,7 +405,7 @@ class _HomeViewState extends State<HomeView> {
               bottom: 25,
               left: 16,
               right: 16,
-              child: StreamBuilder(
+              child: location == "Indonesia" ? StreamBuilder(
                 stream: service.getDataTotalCovid().asStream(),
                 builder: (context, AsyncSnapshot<StatisticModel> snapshoot) {
                   if (snapshoot.hasData) {
@@ -354,6 +445,7 @@ class _HomeViewState extends State<HomeView> {
                                   child: Text("Terinfeksi",
                                       style: TextStyle(
                                           color: ColorConfig.colorBlack,
+                                          fontFamily: "NunitoRegular",
                                           fontSize: 12)),
                                 ),
                                 Container(
@@ -363,16 +455,8 @@ class _HomeViewState extends State<HomeView> {
                                           color:
                                               ColorConfig.colorIconTerinfeksi,
                                           fontSize: 14,
-                                          fontWeight: FontWeight.bold)),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.only(top: 10),
-                                  child: Text("+41.168",
-                                      style: TextStyle(
-                                        color: ColorConfig.colorGrey,
-                                        fontSize: 10,
-                                      )),
-                                ),
+                                          fontFamily: "NunitoBold")),
+                                )
                               ],
                             ),
                           ),
@@ -407,6 +491,7 @@ class _HomeViewState extends State<HomeView> {
                                   child: Text("Sembuh",
                                       style: TextStyle(
                                           color: ColorConfig.colorBlack,
+                                          fontFamily: "NunitoRegular",
                                           fontSize: 12)),
                                 ),
                                 Container(
@@ -415,16 +500,8 @@ class _HomeViewState extends State<HomeView> {
                                       style: TextStyle(
                                           color: ColorConfig.colorGreenPrimary,
                                           fontSize: 14,
-                                          fontWeight: FontWeight.bold)),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.only(top: 10),
-                                  child: Text("+44.550",
-                                      style: TextStyle(
-                                        color: ColorConfig.colorGrey,
-                                        fontSize: 10,
-                                      )),
-                                ),
+                                          fontFamily: "NunitoBold")),
+                                )
                               ],
                             ),
                           ),
@@ -459,6 +536,7 @@ class _HomeViewState extends State<HomeView> {
                                   child: Text("Meninggal",
                                       style: TextStyle(
                                           color: ColorConfig.colorBlack,
+                                          fontFamily: "NunitoRegular",
                                           fontSize: 12)),
                                 ),
                                 Container(
@@ -467,16 +545,8 @@ class _HomeViewState extends State<HomeView> {
                                       style: TextStyle(
                                           color: ColorConfig.colorIconKematian,
                                           fontSize: 14,
-                                          fontWeight: FontWeight.bold)),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.only(top: 10),
-                                  child: Text("+1.759",
-                                      style: TextStyle(
-                                        color: ColorConfig.colorGrey,
-                                        fontSize: 10,
-                                      )),
-                                ),
+                                          fontFamily: "NunitoBold")),
+                                )
                               ],
                             ),
                           )
@@ -491,8 +561,176 @@ class _HomeViewState extends State<HomeView> {
                     );
                   }
 
-                  return Center(
-                    child: CircularProgressIndicator(),
+                  return Container(
+                    child: Center(
+                      child: Text("mengunduh data ..."),
+                    ),
+                  );
+                },
+              ) :
+              StreamBuilder(
+                stream: service.getLocations().asStream(),
+                builder: (context, AsyncSnapshot<List<LocationModel>> snapshoot) {
+                  if (snapshoot.hasData) {
+
+                    var filteredLocation = snapshoot.data.where((element) => element.attributes.provinsi == location).first;
+
+                    return Container(
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Container(
+                            height: 128,
+                            width: 93,
+                            padding:
+                            EdgeInsets.only(top: 10, left: 10, right: 10),
+                            decoration: BoxDecoration(
+                              color: ColorConfig.colorWhite,
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.1),
+                                  spreadRadius: 1,
+                                  blurRadius: 3,
+                                  offset: Offset(
+                                      0, 2), // changes position of shadow
+                                ),
+                              ],
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Image(
+                                    image: AssetImage(
+                                        "asset/image/coronaVirusYellow.png"),
+                                    width: 36,
+                                    height: 36),
+                                Container(
+                                  margin: EdgeInsets.only(top: 10),
+                                  child: Text("Terinfeksi",
+                                      style: TextStyle(
+                                          color: ColorConfig.colorBlack,
+                                          fontFamily: "NunitoRegular",
+                                          fontSize: 12)),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(top: 10),
+                                  child: Text(ConverterHelper.stringToDouble(filteredLocation.attributes.kasusPosi.toString()),
+                                      style: TextStyle(
+                                          color:
+                                          ColorConfig.colorIconTerinfeksi,
+                                          fontSize: 14,
+                                          fontFamily: "NunitoBold")),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            height: 128,
+                            width: 93,
+                            padding:
+                            EdgeInsets.only(top: 10, left: 10, right: 10),
+                            margin: EdgeInsets.only(left: 16, right: 16),
+                            decoration: BoxDecoration(
+                              color: ColorConfig.colorWhite,
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.1),
+                                  spreadRadius: 1,
+                                  blurRadius: 3,
+                                  offset: Offset(
+                                      0, 2), // changes position of shadow
+                                ),
+                              ],
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Image(
+                                    image: AssetImage("asset/image/sembuh.png"),
+                                    width: 36,
+                                    height: 36),
+                                Container(
+                                  margin: EdgeInsets.only(top: 10),
+                                  child: Text("Sembuh",
+                                      style: TextStyle(
+                                          color: ColorConfig.colorBlack,
+                                          fontFamily: "NunitoRegular",
+                                          fontSize: 12)),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(top: 10),
+                                  child: Text(ConverterHelper.stringToDouble(filteredLocation.attributes.kasusSemb.toString()),
+                                      style: TextStyle(
+                                          color: ColorConfig.colorGreenPrimary,
+                                          fontSize: 14,
+                                          fontFamily: "NunitoBold")),
+                                )
+                              ],
+                            ),
+                          ),
+                          Container(
+                            height: 128,
+                            width: 93,
+                            padding:
+                            EdgeInsets.only(top: 10, left: 10, right: 10),
+                            decoration: BoxDecoration(
+                              color: ColorConfig.colorWhite,
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.1),
+                                  spreadRadius: 1,
+                                  blurRadius: 3,
+                                  offset: Offset(
+                                      0, 2), // changes position of shadow
+                                ),
+                              ],
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Image(
+                                  image: AssetImage("asset/image/kematian.png"),
+                                  width: 36,
+                                  height: 36,
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(top: 10),
+                                  child: Text("Meninggal",
+                                      style: TextStyle(
+                                          color: ColorConfig.colorBlack,
+                                          fontFamily: "NunitoRegular",
+                                          fontSize: 12)),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(top: 10),
+                                  child: Text(ConverterHelper.stringToDouble(filteredLocation.attributes.kasusMeni.toString()),
+                                      style: TextStyle(
+                                          color: ColorConfig.colorIconKematian,
+                                          fontSize: 14,
+                                          fontFamily: "NunitoBold")),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    );
+                  } else if (snapshoot.hasError) {
+                    return Container(
+                      child: Center(
+                        child: Text(snapshoot.error.toString()),
+                      ),
+                    );
+                  }
+
+                  return Container(
+                    child: Center(
+                      child: Text("mengunduh data ..."),
+                    ),
                   );
                 },
               ),
@@ -518,7 +756,7 @@ class _HomeViewState extends State<HomeView> {
                         child: Text("Seputar Covid-19",
                             style: TextStyle(
                               color: ColorConfig.colorBlack,
-                              fontWeight: FontWeight.bold,
+                              fontFamily: 'NunitoBold',
                               fontSize: 16,
                             )),
                       ),
@@ -527,7 +765,9 @@ class _HomeViewState extends State<HomeView> {
                         child: Text(
                           "Menyajikan berita terkini seputar Covid-19",
                           style: TextStyle(
-                              color: ColorConfig.colorGrey, fontSize: 12),
+                              color: ColorConfig.colorGrey,
+                              fontFamily: 'NunitoRegular',
+                              fontSize: 12),
                         ),
                       )
                     ],
@@ -539,11 +779,14 @@ class _HomeViewState extends State<HomeView> {
                     child: Text(
                       "Lihat Semua",
                       style: TextStyle(
-                          color: ColorConfig.colorGreenPrimary, fontSize: 12),
+                          color: ColorConfig.colorGreenPrimary,
+                          fontFamily: 'NunitoRegular',
+                          fontSize: 12),
                     )),
               ],
             ),
           ),
+
         ],
       ),
     );
@@ -631,7 +874,7 @@ class _HomeViewState extends State<HomeView> {
                         child: Text("Sering Ditanyakan",
                             style: TextStyle(
                               color: ColorConfig.colorBlack,
-                              fontWeight: FontWeight.bold,
+                              fontFamily: 'NunitoBold',
                               fontSize: 16,
                             )),
                       ),
@@ -644,7 +887,9 @@ class _HomeViewState extends State<HomeView> {
                     child: Text(
                       "Lihat Semua",
                       style: TextStyle(
-                          color: ColorConfig.colorGreenPrimary, fontSize: 12),
+                          color: ColorConfig.colorGreenPrimary,
+                          fontFamily: 'NunitoRegular',
+                          fontSize: 12),
                     )),
               ],
             ),
@@ -682,75 +927,20 @@ class _HomeViewState extends State<HomeView> {
                             child: ExpansionTile(
                               initiallyExpanded: true,
                               title: Text(
-                                "Apa itu virus Corona?",
+                                "Bagaimana penanganan untuk pasien yang terinfeksi virus Corona?",
                                 style: TextStyle(
-                                    color: ColorConfig.colorBlack,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 14),
+                                color: ColorConfig.colorBlack,
+                                fontFamily: 'NunitoBold',
+                                fontSize: 14),
                               ), children: [
                               Container(
                                 margin: EdgeInsets.only(left: 16, top: 8, bottom: 8),
                                 child: Text(
                                   "Virus Corona atau severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) adalah virus yang menyerang sistem pernapasan. Penyakit karena infeksi virus ini disebut COVID-19. Virus Corona bisa menyebabkan gangguan ringan pada sistem pernapasan, infeksi paru-paru yang berat, hingga kematian.",
                                   style: TextStyle(
-                                      color: ColorConfig.colorBlack, fontSize: 14),
-                                ),
-                              ),
-                            ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 8),
-            decoration: BoxDecoration(
-                color: ColorConfig.colorBackground,
-                borderRadius: BorderRadius.circular(10)),
-            child: Stack(
-              children: [
-                Positioned(
-                  child: Container(
-                    width: 8,
-                    decoration: BoxDecoration(
-                        color: ColorConfig.colorGreenPrimary,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            bottomLeft: Radius.circular(10))),
-
-                  ),
-                  top: 0,
-                  bottom: 0,
-                  left: 0,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            margin: EdgeInsets.only(left: 16),
-                            child: ExpansionTile(
-                              title: Text(
-                                "Bagaimana gejala yang timbul bila terinfeksi?",
-                                style: TextStyle(
-                                    color: ColorConfig.colorBlack,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 14),
-                              ), children: [
-                              Container(
-                                margin: EdgeInsets.only(left: 16, top: 8, bottom: 8),
-                                child: Text(
-                                  "Virus Corona atau severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) adalah virus yang menyerang sistem pernapasan. Penyakit karena infeksi virus ini disebut COVID-19. Virus Corona bisa menyebabkan gangguan ringan pada sistem pernapasan, infeksi paru-paru yang berat, hingga kematian.",
-                                  style: TextStyle(
-                                      color: ColorConfig.colorBlack, fontSize: 14),
+                                  color: ColorConfig.colorBlack,
+    fontFamily: 'NunitoRegular',
+    fontSize: 14),
                                 ),
                               ),
                             ],
@@ -799,7 +989,7 @@ class _HomeViewState extends State<HomeView> {
                                 "Bagaimana penanganan untuk pasien yang terinfeksi virus Corona?",
                                 style: TextStyle(
                                     color: ColorConfig.colorBlack,
-                                    fontWeight: FontWeight.bold,
+                                    fontFamily: 'NunitoBold',
                                     fontSize: 14),
                               ), children: [
                               Container(
@@ -807,7 +997,68 @@ class _HomeViewState extends State<HomeView> {
                                 child: Text(
                                   "Virus Corona atau severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) adalah virus yang menyerang sistem pernapasan. Penyakit karena infeksi virus ini disebut COVID-19. Virus Corona bisa menyebabkan gangguan ringan pada sistem pernapasan, infeksi paru-paru yang berat, hingga kematian.",
                                   style: TextStyle(
-                                      color: ColorConfig.colorBlack, fontSize: 14),
+                                      color: ColorConfig.colorBlack,
+                                      fontFamily: 'NunitoRegular',
+                                      fontSize: 14),
+                                ),
+                              ),
+                            ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 8),
+            decoration: BoxDecoration(
+                color: ColorConfig.colorBackground,
+                borderRadius: BorderRadius.circular(10)),
+            child: Stack(
+              children: [
+                Positioned(
+                  child: Container(
+                    width: 8,
+                    decoration: BoxDecoration(
+                        color: ColorConfig.colorGreenPrimary,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(10),
+                            bottomLeft: Radius.circular(10))),
+
+                  ),
+                  top: 0,
+                  bottom: 0,
+                  left: 0,
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(left: 16),
+                            child: ExpansionTile(
+                              title: Text(
+                                "Bagaimana penanganan untuk pasien yang terinfeksi virus Corona?",
+                                style: TextStyle(
+                                    color: ColorConfig.colorBlack,
+                                    fontFamily: 'NunitoBold',
+                                    fontSize: 14),
+                              ), children: [
+                              Container(
+                                margin: EdgeInsets.only(left: 16, top: 8, bottom: 8),
+                                child: Text(
+                                  "Virus Corona atau severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) adalah virus yang menyerang sistem pernapasan. Penyakit karena infeksi virus ini disebut COVID-19. Virus Corona bisa menyebabkan gangguan ringan pada sistem pernapasan, infeksi paru-paru yang berat, hingga kematian.",
+                                  style: TextStyle(
+                                      color: ColorConfig.colorBlack,
+                                      fontFamily: 'NunitoRegular',
+                                      fontSize: 14),
                                 ),
                               ),
                             ],
@@ -840,7 +1091,7 @@ class _HomeViewState extends State<HomeView> {
                 style: TextStyle(
                     color: ColorConfig.colorBlack,
                     fontSize: 16,
-                    fontWeight: FontWeight.bold),
+                    fontFamily: 'NunitoBold'),
               ),
             ),
             Expanded(
@@ -878,10 +1129,10 @@ class _HomeViewState extends State<HomeView> {
                                           margin: EdgeInsets.only(left: 8, right: 8),
                                           child: Text(snapshoot.data[idx].title,
                                             maxLines: 3,
-                                            style: TextStyle(
-                                                color: ColorConfig.colorBlack,
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.bold),
+                                            style:  TextStyle(
+                                                  color: ColorConfig.colorBlack,
+                                                  fontSize: 14,
+                                                  fontFamily: 'NunitoBold'),
                                           ),
                                         ),
                                         Container(
@@ -895,7 +1146,11 @@ class _HomeViewState extends State<HomeView> {
                                               Container(
                                                   margin: EdgeInsets.only(left: 8),
                                                   child: Text(TimeAgo.timeAgoSinceDate(snapshoot.data[idx].pubDate)
-                                                  ),
+                                                  , style: TextStyle(
+    color: ColorConfig.colorGrey,
+    fontSize: 12,
+    fontFamily: 'NunitoRegular'
+    )),
                                               )
                                             ],
                                           ),
@@ -929,7 +1184,7 @@ class _HomeViewState extends State<HomeView> {
 
   Widget motivasiWidget() {
     return Container(
-      margin: EdgeInsets.only(left: 24, right: 24),
+      margin: EdgeInsets.only(left: 16, right: 16),
       height: 300,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -938,212 +1193,116 @@ class _HomeViewState extends State<HomeView> {
               style: TextStyle(
                   color: ColorConfig.colorBlack,
                   fontSize: 16,
-                  fontWeight: FontWeight.bold)),
+                  fontFamily: 'NunitoBold')),
           Expanded(
             child: Container(
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(top: 16),
-                    height: 230,
-                    width: 248,
-                    child: Column(
-                      children: [
-                        Container(
-                          height: 146,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              image: DecorationImage(
-                                  image:
-                                      AssetImage("asset/image/motivasi1.png"),
-                                  fit: BoxFit.contain)),
-                          child: Center(
-                            child: Container(
-                              height: 40,
-                              width: 40,
-                              decoration: BoxDecoration(
-                                  color: ColorConfig.colorButtonPlay,
-                                  borderRadius: BorderRadius.circular(20)),
-                              child: Icon(
-                                Icons.play_arrow,
-                                color: ColorConfig.colorWhite,
+              margin: EdgeInsets.only(top: 16),
+              padding: EdgeInsets.only(left: 8, right: 8),
+              child: StreamBuilder(
+                stream: service.getYoutubePlaylistItem().asStream(),
+                builder: (context, AsyncSnapshot<YoutubePlaylistModel> snapshoot){
+
+                  if(snapshoot.hasData) {
+
+                    return ListView.builder(
+                      itemCount: snapshoot.data.items.length,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (ctx, idx) {
+                        return Container(
+                          margin: EdgeInsets.only(right: 8),
+                          height: 230,
+                          width: 248,
+                          child: Material(
+                            color: Colors.transparent,
+                            child: InkWell(
+                              onTap: () => {
+                                gotoDetailMovie(snapshoot.data.items[idx])
+                              },
+                              child: Column(
+                                children: [
+                                  Container(
+                                    height: 146,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        image: DecorationImage(
+                                            image:
+                                            NetworkImage(snapshoot.data.items[idx].snippet.thumbnails.medium.url),
+                                            fit: BoxFit.contain)),
+                                    child: Center(
+                                      child: Container(
+                                        height: 40,
+                                        width: 40,
+                                        decoration: BoxDecoration(
+                                            color: ColorConfig.colorButtonPlay,
+                                            borderRadius: BorderRadius.circular(20)),
+                                        child: Icon(
+                                          Icons.play_arrow,
+                                          color: ColorConfig.colorWhite,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(top: 16, left: 8, right: 8),
+                                    child: Text(
+                                      snapshoot.data.items[idx].snippet.title,
+                                      maxLines: 2,
+                                      style: TextStyle(
+                                          color: ColorConfig.colorBlack,
+                                          fontFamily: 'NunitoBold',
+                                          fontSize: 14),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Row(
+                                      children: [
+                                        Container(
+                                            width: 56,
+                                            height: 23,
+                                            margin: EdgeInsets.only(top: 8, left: 8, right: 8),
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                  color: ColorConfig.colorGreenPrimary),
+                                              borderRadius: BorderRadius.circular(10),
+                                              color: ColorConfig.colorBackground,
+                                            ),
+                                            child: Center(
+                                              child: Text(
+                                                "Video",
+                                                style: TextStyle(
+                                                    color: ColorConfig.colorGreenPrimary,
+                                                    fontSize: 12,
+                                                    fontFamily: 'NunitoSemiBold'
+                                                ),
+                                              ),
+                                            ))
+                                      ],
+                                    ),
+                                  )
+                                ],
                               ),
                             ),
                           ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(top: 16),
-                          child: Text(
-                            "Ibu Rahmi Berhasil Sembuh Dari Covid-19 Dengan Tekad Kuat Dala...",
-                            maxLines: 2,
-                            style: TextStyle(
-                                color: ColorConfig.colorBlack,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14),
-                          ),
-                        ),
-                        Container(
-                          child: Row(
-                            children: [
-                              Container(
-                                  width: 56,
-                                  height: 23,
-                                  margin: EdgeInsets.only(top: 8),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                        color: ColorConfig.colorGreenPrimary),
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: ColorConfig.colorBackground,
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      "Video",
-                                      style: TextStyle(
-                                        color: ColorConfig.colorGreenPrimary,
-                                      ),
-                                    ),
-                                  ))
-                            ],
-                          ),
-                        )
-                      ],
+                        );
+                      },
+                    );
+
+                  }else if(snapshoot.hasError) {
+
+                    return Container(
+                      child: Center(
+                        child: Text(snapshoot.error.toString()),
+                      ),
+                    );
+                  }
+
+                  return Container(
+                    child: Center(
+                      child: Text("sedang memuat data"),
                     ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(top: 16, left: 16),
-                    height: 230,
-                    width: 248,
-                    child: Column(
-                      children: [
-                        Container(
-                          height: 146,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              image: DecorationImage(
-                                  image:
-                                      AssetImage("asset/image/motivasi1.png"),
-                                  fit: BoxFit.contain)),
-                          child: Center(
-                            child: Container(
-                              height: 40,
-                              width: 40,
-                              decoration: BoxDecoration(
-                                  color: ColorConfig.colorButtonPlay,
-                                  borderRadius: BorderRadius.circular(20)),
-                              child: Icon(
-                                Icons.play_arrow,
-                                color: ColorConfig.colorWhite,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(top: 16),
-                          child: Text(
-                            "Ibu Rahmi Berhasil Sembuh Dari Covid-19 Dengan Tekad Kuat Dala...",
-                            maxLines: 2,
-                            style: TextStyle(
-                                color: ColorConfig.colorBlack,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14),
-                          ),
-                        ),
-                        Container(
-                          child: Row(
-                            children: [
-                              Container(
-                                  width: 56,
-                                  height: 23,
-                                  margin: EdgeInsets.only(top: 8),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                        color: ColorConfig.colorGreenPrimary),
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: ColorConfig.colorBackground,
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      "Video",
-                                      style: TextStyle(
-                                        color: ColorConfig.colorGreenPrimary,
-                                      ),
-                                    ),
-                                  ))
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(top: 16, left: 16),
-                    height: 230,
-                    width: 248,
-                    child: Column(
-                      children: [
-                        Container(
-                          height: 146,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              image: DecorationImage(
-                                  image:
-                                      AssetImage("asset/image/motivasi1.png"),
-                                  fit: BoxFit.contain)),
-                          child: Center(
-                            child: Container(
-                              height: 40,
-                              width: 40,
-                              decoration: BoxDecoration(
-                                  color: ColorConfig.colorButtonPlay,
-                                  borderRadius: BorderRadius.circular(20)),
-                              child: Icon(
-                                Icons.play_arrow,
-                                color: ColorConfig.colorWhite,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(top: 16),
-                          child: Text(
-                            "Ibu Rahmi Berhasil Sembuh Dari Covid-19 Dengan Tekad Kuat Dala...",
-                            maxLines: 2,
-                            style: TextStyle(
-                                color: ColorConfig.colorBlack,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14),
-                          ),
-                        ),
-                        Container(
-                          child: Row(
-                            children: [
-                              Container(
-                                  width: 56,
-                                  height: 23,
-                                  margin: EdgeInsets.only(top: 8),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                        color: ColorConfig.colorGreenPrimary),
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: ColorConfig.colorBackground,
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      "Video",
-                                      style: TextStyle(
-                                        color: ColorConfig.colorGreenPrimary,
-                                      ),
-                                    ),
-                                  ))
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+                  );
+                },
+              )
             ),
           )
         ],

@@ -1,7 +1,9 @@
 import 'dart:convert';
 
 import 'package:corona_apps/config/network/apiCall.dart';
+import 'package:corona_apps/feature/home/model/locationModel.dart';
 import 'package:corona_apps/feature/home/model/staticticModel.dart';
+import 'package:corona_apps/feature/home/model/youtubePlaylistModel.dart';
 import 'package:http/http.dart' as http;
 import 'package:webfeed/domain/rss_feed.dart';
 import 'package:webfeed/domain/rss_item.dart';
@@ -50,4 +52,38 @@ class HomeService {
       throw Exception("error parse rss");
     }
   }
+
+  Future<List<LocationModel>> getLocations() async{
+
+    var response = await http.get(ApiCall.baseUrlHome + "indonesia/provinsi");
+
+    if(response.body != null) {
+
+      var listItem = (jsonDecode(response.body) as List).map((e) => LocationModel.fromJson(e)).toList();
+
+      return listItem;
+
+    }else {
+
+      throw Exception("error parse rss");
+    }
+  }
+
+  Future<YoutubePlaylistModel> getYoutubePlaylistItem() async{
+
+    var url = "https://youtube.googleapis.com/youtube/v3/playlistItems?key=" + ApiCall.youtubeApikEY +"&playlistId=" + ApiCall.playlistid + "&channelId=" + ApiCall.channelId + "&part=snippet,contentDetails";
+
+    var response = await http.get(url);
+
+    if(response.body != null) {
+
+      return YoutubePlaylistModel.fromJson(jsonDecode(response.body));
+
+    }else {
+
+      throw Exception("error parse rss");
+    }
+  }
+
+
 }

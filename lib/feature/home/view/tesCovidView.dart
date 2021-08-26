@@ -48,7 +48,7 @@ class _TesCovidViewState extends State<TesCovidView> {
               style: TextStyle(
               color: ColorConfig.colorBlack,
                 fontSize: 18,
-                fontWeight: FontWeight.bold,
+                fontFamily: 'NunitoBold'
             ),),
           ),
           Container(
@@ -58,6 +58,7 @@ class _TesCovidViewState extends State<TesCovidView> {
               textAlign: TextAlign.center,
               style: TextStyle(
               color: ColorConfig.colorGrey,
+                fontFamily: 'NunitoRegular',
                 fontSize: 16,
             ),),
           ),
@@ -66,6 +67,7 @@ class _TesCovidViewState extends State<TesCovidView> {
             child: Text("Klik Mulai Tes untuk memulai",
               style: TextStyle(
               color: ColorConfig.colorGrey,
+                fontFamily: 'NunitoRegular',
                 fontSize: 16,
             ),),
           ),
@@ -85,6 +87,7 @@ class _TesCovidViewState extends State<TesCovidView> {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                   color: ColorConfig.colorWhite,
+                    fontFamily: 'NunitoSemiBold',
                     fontSize: 16,
                 ),),
               ),

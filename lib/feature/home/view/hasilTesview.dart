@@ -34,13 +34,14 @@ class _HasilTesViewState extends State<HasilTesView> {
                   style: TextStyle(
                     color: ColorConfig.colorWhite,
                     fontSize: 18,
-                    fontWeight: FontWeight.bold
+                    fontFamily: 'NunitoBold'
                   )),
                 Container(
                   margin: EdgeInsets.only(top: 8),
                   child: Text("Diambil berdasarkan jawaban Anda",
                     style: TextStyle(
                     color: ColorConfig.colorWhite,
+                      fontFamily: 'NunitoRegular',
                       fontSize: 14,
                   )),
                 ),
@@ -69,7 +70,7 @@ class _HasilTesViewState extends State<HasilTesView> {
                           style: TextStyle(
                           color: ColorConfig.colorWhite,
                             fontSize: 18,
-                            fontWeight: FontWeight.bold
+                            fontFamily: 'NunitoBold'
                         ),),
                       )
                     ],
@@ -107,15 +108,14 @@ class _HasilTesViewState extends State<HasilTesView> {
   Widget content() {
     return Container(
       width: MediaQuery.of(context).size.width,
-      margin: EdgeInsets.only(top: 24, left: 16, right: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      margin: EdgeInsets.only(left: 16, right: 16),
+      child: ListView(
         children: [
           Text("Anjuran Terbaik Untuk Anda",
           style: TextStyle(
             color: ColorConfig.colorBlack,
             fontSize: 18,
-            fontWeight: FontWeight.bold
+            fontFamily: 'NunitoBold'
           )),
           Container(
             margin: EdgeInsets.only(top: 16),
@@ -144,20 +144,17 @@ class _HasilTesViewState extends State<HasilTesView> {
                           bottomLeft: Radius.circular(10))
                   ),
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Container(
-                      width: 275,
-                            margin: EdgeInsets.only(left: 16, right: 16, top: 16),
-                            child: Text("Anda tetap harus selalu menjaga kesehatan, dan juga menaati protokol kesehatan",
-                              maxLines: 3,
-                              style: TextStyle(
-                                  color: ColorConfig.colorBlack,
-                                  fontSize: 14
-                              ),),
-                          ),
-                  ],
+                Expanded(
+                  child: Container(
+                              margin: EdgeInsets.only(left: 16, right: 16),
+                              child: Text("Anda tetap harus selalu menjaga kesehatan, dan juga menaati protokol kesehatan",
+                                maxLines: 3,
+                                style: TextStyle(
+                                    color: ColorConfig.colorBlack,
+                                    fontFamily: 'NunitoRegular',
+                                    fontSize: 14
+                                ),),
+                            ),
                 ),
               ],
             ),
@@ -189,20 +186,17 @@ class _HasilTesViewState extends State<HasilTesView> {
                           bottomLeft: Radius.circular(10))
                   ),
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Container(
-                      width: 275,
-                      margin: EdgeInsets.only(left: 16, right: 16, top: 16),
-                      child: Text("Hindari kerumunan yang berpotensi menjadi cluster penyebaran covid-19",
-                        maxLines: 3,
-                        style: TextStyle(
-                            color: ColorConfig.colorBlack,
-                            fontSize: 14
-                        ),),
-                    ),
-                  ],
+                Expanded(
+                  child: Container(
+                        margin: EdgeInsets.only(left: 16, right: 16),
+                        child: Text("Hindari kerumunan yang berpotensi menjadi cluster penyebaran covid-19",
+                          maxLines: 3,
+                          style: TextStyle(
+                              color: ColorConfig.colorBlack,
+                              fontFamily: 'NunitoRegular',
+                              fontSize: 14
+                          ),),
+                      ),
                 ),
               ],
             ),
@@ -234,20 +228,17 @@ class _HasilTesViewState extends State<HasilTesView> {
                           bottomLeft: Radius.circular(10))
                   ),
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Container(
-                      width: 275,
-                      margin: EdgeInsets.only(left: 16, right: 16, top: 16),
-                      child: Text("Minum vitamin atau suplemen kesehatan dan makan makanan yang bergizi",
-                        maxLines: 3,
-                        style: TextStyle(
-                            color: ColorConfig.colorBlack,
-                            fontSize: 14
-                        ),),
-                    ),
-                  ],
+                Expanded(
+                  child: Container(
+                        margin: EdgeInsets.only(left: 16, right: 16),
+                        child: Text("Minum vitamin atau suplemen kesehatan dan makan makanan yang bergizi",
+                          maxLines: 3,
+                          style: TextStyle(
+                              color: ColorConfig.colorBlack,
+                              fontFamily: 'NunitoRegular',
+                              fontSize: 14
+                          ),),
+                      ),
                 ),
               ],
             ),
@@ -279,21 +270,18 @@ class _HasilTesViewState extends State<HasilTesView> {
                           bottomLeft: Radius.circular(10))
                   ),
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Container(
-                      width: 275,
-                      margin: EdgeInsets.only(left: 16, right: 16, top: 16),
-                      child: Text("Selalu memakai masket dan hand sanitizer",
-                        maxLines: 3,
-                        style: TextStyle(
-                            color: ColorConfig.colorBlack,
-                            fontSize: 14
-                        ),),
+                    Expanded(
+                      child: Container(
+                        margin: EdgeInsets.only(left: 16, right: 16),
+                        child: Text("Selalu memakai masket dan hand sanitizer",
+                          maxLines: 3,
+                          style: TextStyle(
+                              color: ColorConfig.colorBlack,
+                              fontFamily: 'NunitoRegular',
+                              fontSize: 14
+                          ),),
+                      ),
                     ),
-                  ],
-                ),
               ],
             ),
           ),
@@ -302,10 +290,53 @@ class _HasilTesViewState extends State<HasilTesView> {
             child: Text("Gejala Yang Anda Alami",
               style: TextStyle(
                 color: ColorConfig.colorBlack,
-                fontWeight: FontWeight.bold,
+                fontFamily: 'NunitoBold',
                 fontSize: 18
               ),),
-          )
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 16),
+            child: Text("Berdasarkan jawaban Anda, kami tidak menemukan gejala apapun",
+            style: TextStyle(
+              color: ColorConfig.colorGrey,
+              fontSize: 14,
+              fontFamily: 'NunitoRegular'
+            ),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 16),
+            child: Text("Indikator Analisa",
+              style: TextStyle(
+                  color: ColorConfig.colorBlack,
+                  fontFamily: 'NunitoBold',
+                  fontSize: 18
+              )),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 16),
+            child: Image(
+              image: AssetImage("asset/image/hasilResikoRendah.png"),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 8),
+            child: Image(
+              image: AssetImage("asset/image/hasilWaspada.png"),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 8),
+            child: Image(
+              image: AssetImage("asset/image/hasilRentan.png"),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 8),
+            child: Image(
+              image: AssetImage("asset/image/hasilSangatBeresiko.png"),
+            ),
+          ),
         ],
       ),
     );
@@ -316,13 +347,11 @@ class _HasilTesViewState extends State<HasilTesView> {
     return Scaffold(
       backgroundColor: ColorConfig.colorBackground,
         body: Container(
-          child: SingleChildScrollView(
-            child: Column(
+          child: Column(
               children: [
                 header(),
-                content()
+                Expanded(child: content())
             ],),
-          ),
         ));
   }
 }
