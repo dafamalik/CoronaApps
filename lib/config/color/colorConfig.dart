@@ -15,4 +15,5 @@ class ColorConfig {
   static Color colorGrey = Color(0xFF7C7C7C);
   static Color colorBackgroundBerita = Color(0xffF9F9F9);
   static Color colorTransparent = Colors.transparent;
+  static Color colorProfileBackground = Color(0xFFD6D6D6);
 }
