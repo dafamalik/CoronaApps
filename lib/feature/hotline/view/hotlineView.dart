@@ -92,12 +92,13 @@ class _HotlineViewState extends State<HotlineView> {
 
   Widget hospitalPhone() {
     return Container(
-      height: 630,
+      height: 1400,
       margin: EdgeInsets.only(left: 24, right: 24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
+            margin: EdgeInsets.only(top: 16),
             decoration: BoxDecoration(
               color: ColorConfig.colorWhite,
               borderRadius: BorderRadius.circular(10),
@@ -111,42 +112,88 @@ class _HotlineViewState extends State<HotlineView> {
               ],
             ),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  margin: EdgeInsets.only(left: 16, top: 16),
-                  child: Text("Layanan Nasional Covid-19",
-                  style: TextStyle(
-                    color: ColorConfig.colorBlack,
-                    fontFamily: 'NunitoRegular',
-                    fontSize: 14
-                  ),),
-                ),
-                Container(
-                  margin: EdgeInsets.only(left: 16, top: 16, bottom: 16),
-                  child: Row(
+                  decoration: BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(width: 1, color: ColorConfig.colorBorder),
+                      )
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Image(image: AssetImage("asset/image/phoneGreen.png"),
-                      width: 17,
-                      height: 17,),
                       Container(
-                        margin: EdgeInsets.only(left: 8),
-                        child: Text("119",
+                        margin: EdgeInsets.only(left: 16, right: 16, top: 16),
+                        child: Text("Kementrian Kesehatan",
                           style: TextStyle(
-                            fontSize: 14,
-                            fontFamily: 'NunitoRegular',
-                            color: ColorConfig.colorBlack
+                              color: ColorConfig.colorBlack,
+                              fontFamily: 'NunitoRegular',
+                              fontSize: 14
                           ),),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 16, top: 16, bottom: 16),
+                        child: Row(
+                          children: [
+                            Image(image: AssetImage("asset/image/phoneGreen.png"),
+                              width: 17,
+                              height: 17,),
+                            Container(
+                              margin: EdgeInsets.only(left: 8),
+                              child: Text("021-5210-411",
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: ColorConfig.colorBlack,
+                                    fontFamily: 'NunitoRegular'
+                                ),),
+                            )
+                          ],
+                        ),
                       )
                     ],
                   ),
-                )
+                ),
+                Container(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(left: 16, right: 16, top: 16),
+                        child: Text("Kementrian Kesehatan",
+                          style: TextStyle(
+                              color: ColorConfig.colorBlack,
+                              fontFamily: 'NunitoRegular',
+                              fontSize: 14
+                          ),),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 16, top: 16, bottom: 16),
+                        child: Row(
+                          children: [
+                            Image(image: AssetImage("asset/image/phoneGreen.png"),
+                              width: 17,
+                              height: 17,),
+                            Container(
+                              margin: EdgeInsets.only(left: 8),
+                              child: Text("0812-1212-3119",
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    fontFamily: 'NunitoRegular',
+                                    color: ColorConfig.colorBlack
+                                ),),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
           Container(
             margin: EdgeInsets.only(top: 24),
-            child: Text("ACEH",
+            child: Text("DKI Jakarta",
             style: TextStyle(
               color: ColorConfig.colorBlack,
               fontSize: 14,
@@ -180,7 +227,7 @@ class _HotlineViewState extends State<HotlineView> {
                     children: [
                       Container(
                         margin: EdgeInsets.only(left: 16, right: 16, top: 16),
-                        child: Text("Pemerintah Daerah Aceh",
+                        child: Text("Pemprov DKI Jakarta",
                           style: TextStyle(
                               color: ColorConfig.colorBlack,
                               fontFamily: 'NunitoRegular',
@@ -196,7 +243,7 @@ class _HotlineViewState extends State<HotlineView> {
                               height: 17,),
                             Container(
                               margin: EdgeInsets.only(left: 8),
-                              child: Text("+62876898765321",
+                              child: Text("112",
                                 style: TextStyle(
                                     fontSize: 14,
                                     color: ColorConfig.colorBlack,
@@ -215,7 +262,7 @@ class _HotlineViewState extends State<HotlineView> {
                     children: [
                       Container(
                         margin: EdgeInsets.only(left: 16, right: 16, top: 16),
-                        child: Text("RSUD Dr Zainoel Abadin, Banda Aceh",
+                        child: Text("Pemprov DKI Jakarta",
                           style: TextStyle(
                               color: ColorConfig.colorBlack,
                               fontFamily: 'NunitoRegular',
@@ -231,7 +278,7 @@ class _HotlineViewState extends State<HotlineView> {
                               height: 17,),
                             Container(
                               margin: EdgeInsets.only(left: 8),
-                              child: Text("+62876898765321",
+                              child: Text("0813-8837-6955",
                                 style: TextStyle(
                                     fontSize: 14,
                                     fontFamily: 'NunitoRegular',
@@ -249,7 +296,7 @@ class _HotlineViewState extends State<HotlineView> {
           ),
           Container(
             margin: EdgeInsets.only(top: 24),
-            child: Text("BALI",
+            child: Text("Jawa Tengah",
               style: TextStyle(
                   color: ColorConfig.colorBlack,
                   fontSize: 14,
@@ -271,42 +318,88 @@ class _HotlineViewState extends State<HotlineView> {
               ],
             ),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  margin: EdgeInsets.only(left: 16, top: 16),
-                  child: Text("RSUD Sanjiwani, Gianyar",
-                    style: TextStyle(
-                        color: ColorConfig.colorBlack,
-                        fontFamily: 'NunitoRegular',
-                        fontSize: 14
-                    ),),
-                ),
-                Container(
-                  margin: EdgeInsets.only(left: 16, top: 16, bottom: 16),
-                  child: Row(
+                  decoration: BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(width: 1, color: ColorConfig.colorBorder),
+                      )
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Image(image: AssetImage("asset/image/phoneGreen.png"),
-                        width: 17,
-                        height: 17,),
                       Container(
-                        margin: EdgeInsets.only(left: 8),
-                        child: Text("+62876898765321",
+                        margin: EdgeInsets.only(left: 16, right: 16, top: 16),
+                        child: Text("Pemprov Jawa Tengah",
                           style: TextStyle(
-                              fontSize: 14,
+                              color: ColorConfig.colorBlack,
                               fontFamily: 'NunitoRegular',
-                              color: ColorConfig.colorBlack
+                              fontSize: 14
                           ),),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 16, top: 16, bottom: 16),
+                        child: Row(
+                          children: [
+                            Image(image: AssetImage("asset/image/phoneGreen.png"),
+                              width: 17,
+                              height: 17,),
+                            Container(
+                              margin: EdgeInsets.only(left: 8),
+                              child: Text("024-358-0713",
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: ColorConfig.colorBlack,
+                                    fontFamily: 'NunitoRegular'
+                                ),),
+                            )
+                          ],
+                        ),
                       )
                     ],
                   ),
-                )
+                ),
+                Container(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(left: 16, right: 16, top: 16),
+                        child: Text("Pemprov Jawa Tengah",
+                          style: TextStyle(
+                              color: ColorConfig.colorBlack,
+                              fontFamily: 'NunitoRegular',
+                              fontSize: 14
+                          ),),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 16, top: 16, bottom: 16),
+                        child: Row(
+                          children: [
+                            Image(image: AssetImage("asset/image/phoneGreen.png"),
+                              width: 17,
+                              height: 17,),
+                            Container(
+                              margin: EdgeInsets.only(left: 8),
+                              child: Text("0823-1360-0560",
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    fontFamily: 'NunitoRegular',
+                                    color: ColorConfig.colorBlack
+                                ),),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
           Container(
             margin: EdgeInsets.only(top: 24),
-            child: Text("BANTEN",
+            child: Text("Jawa Timur",
               style: TextStyle(
                   color: ColorConfig.colorBlack,
                   fontSize: 14,
@@ -328,36 +421,288 @@ class _HotlineViewState extends State<HotlineView> {
               ],
             ),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  margin: EdgeInsets.only(left: 16, top: 16),
-                  child: Text("RSU Kabupaten Tangerang, Kota Tangerang",
-                    style: TextStyle(
-                        color: ColorConfig.colorBlack,
-                        fontFamily: 'NunitoRegular',
-                        fontSize: 14
-                    ),),
-                ),
-                Container(
-                  margin: EdgeInsets.only(left: 16, top: 16, bottom: 16),
-                  child: Row(
+                  decoration: BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(width: 1, color: ColorConfig.colorBorder),
+                      )
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Image(image: AssetImage("asset/image/phoneGreen.png"),
-                        width: 17,
-                        height: 17,),
                       Container(
-                        margin: EdgeInsets.only(left: 8),
-                        child: Text("+62215577280",
+                        margin: EdgeInsets.only(left: 16, right: 16, top: 16),
+                        child: Text("Pemprov Jawa Timur",
                           style: TextStyle(
-                              fontSize: 14,
+                              color: ColorConfig.colorBlack,
                               fontFamily: 'NunitoRegular',
-                              color: ColorConfig.colorBlack
+                              fontSize: 14
                           ),),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 16, top: 16, bottom: 16),
+                        child: Row(
+                          children: [
+                            Image(image: AssetImage("asset/image/phoneGreen.png"),
+                              width: 17,
+                              height: 17,),
+                            Container(
+                              margin: EdgeInsets.only(left: 8),
+                              child: Text("031-843-0313",
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: ColorConfig.colorBlack,
+                                    fontFamily: 'NunitoRegular'
+                                ),),
+                            )
+                          ],
+                        ),
                       )
                     ],
                   ),
-                )
+                ),
+                Container(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(left: 16, right: 16, top: 16),
+                        child: Text("Pemprov Jawa Timur",
+                          style: TextStyle(
+                              color: ColorConfig.colorBlack,
+                              fontFamily: 'NunitoRegular',
+                              fontSize: 14
+                          ),),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 16, top: 16, bottom: 16),
+                        child: Row(
+                          children: [
+                            Image(image: AssetImage("asset/image/phoneGreen.png"),
+                              width: 17,
+                              height: 17,),
+                            Container(
+                              margin: EdgeInsets.only(left: 8),
+                              child: Text("0813-3436-7800",
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    fontFamily: 'NunitoRegular',
+                                    color: ColorConfig.colorBlack
+                                ),),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 24),
+            child: Text("Jawa Barat",
+              style: TextStyle(
+                  color: ColorConfig.colorBlack,
+                  fontSize: 14,
+                  fontFamily: 'NunitoBold'
+              ),),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 16),
+            decoration: BoxDecoration(
+              color: ColorConfig.colorWhite,
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.1),
+                  spreadRadius: 1,
+                  blurRadius: 3,
+                  offset: Offset(0, 2), // changes position of shadow
+                ),
+              ],
+            ),
+            child: Column(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(width: 1, color: ColorConfig.colorBorder),
+                      )
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(left: 16, right: 16, top: 16),
+                        child: Text("Pemprov Jawa Barat",
+                          style: TextStyle(
+                              color: ColorConfig.colorBlack,
+                              fontFamily: 'NunitoRegular',
+                              fontSize: 14
+                          ),),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 16, top: 16, bottom: 16),
+                        child: Row(
+                          children: [
+                            Image(image: AssetImage("asset/image/phoneGreen.png"),
+                              width: 17,
+                              height: 17,),
+                            Container(
+                              margin: EdgeInsets.only(left: 8),
+                              child: Text("119",
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: ColorConfig.colorBlack,
+                                    fontFamily: 'NunitoRegular'
+                                ),),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Container(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(left: 16, right: 16, top: 16),
+                        child: Text("Pemprov Jawa Barat",
+                          style: TextStyle(
+                              color: ColorConfig.colorBlack,
+                              fontFamily: 'NunitoRegular',
+                              fontSize: 14
+                          ),),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 16, top: 16, bottom: 16),
+                        child: Row(
+                          children: [
+                            Image(image: AssetImage("asset/image/phoneGreen.png"),
+                              width: 17,
+                              height: 17,),
+                            Container(
+                              margin: EdgeInsets.only(left: 8),
+                              child: Text("0811-209-3306",
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    fontFamily: 'NunitoRegular',
+                                    color: ColorConfig.colorBlack
+                                ),),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 24),
+            child: Text("D.I Yogyakarta",
+              style: TextStyle(
+                  color: ColorConfig.colorBlack,
+                  fontSize: 14,
+                  fontFamily: 'NunitoBold'
+              ),),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 16),
+            decoration: BoxDecoration(
+              color: ColorConfig.colorWhite,
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.1),
+                  spreadRadius: 1,
+                  blurRadius: 3,
+                  offset: Offset(0, 2), // changes position of shadow
+                ),
+              ],
+            ),
+            child: Column(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(width: 1, color: ColorConfig.colorBorder),
+                      )
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(left: 16, right: 16, top: 16),
+                        child: Text("Pemprov D.I Yogyakarta",
+                          style: TextStyle(
+                              color: ColorConfig.colorBlack,
+                              fontFamily: 'NunitoRegular',
+                              fontSize: 14
+                          ),),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 16, top: 16, bottom: 16),
+                        child: Row(
+                          children: [
+                            Image(image: AssetImage("asset/image/phoneGreen.png"),
+                              width: 17,
+                              height: 17,),
+                            Container(
+                              margin: EdgeInsets.only(left: 8),
+                              child: Text("0274-555-585",
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: ColorConfig.colorBlack,
+                                    fontFamily: 'NunitoRegular'
+                                ),),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Container(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(left: 16, right: 16, top: 16),
+                        child: Text("Pemprov D.I Yogyakarta",
+                          style: TextStyle(
+                              color: ColorConfig.colorBlack,
+                              fontFamily: 'NunitoRegular',
+                              fontSize: 14
+                          ),),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 16, top: 16, bottom: 16),
+                        child: Row(
+                          children: [
+                            Image(image: AssetImage("asset/image/phoneGreen.png"),
+                              width: 17,
+                              height: 17,),
+                            Container(
+                              margin: EdgeInsets.only(left: 8),
+                              child: Text("0811-2764-800",
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    fontFamily: 'NunitoRegular',
+                                    color: ColorConfig.colorBlack
+                                ),),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
